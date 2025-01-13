@@ -24,7 +24,7 @@ header {
     width: 100%;
     height: 39px;
     background-color: #B11B26;
-    opacity: 1; /* Mantém a visibilidade */
+    opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +64,7 @@ header {
 
 .logo ul li a {
     text-decoration: none; /* Remove sublinhado */
-    color: black; /* Cor do texto */
+    color: rgb(255, 255, 255); /* Cor do texto */
 }
 /* Seleciona o link específico "Outlet" */
 .logo ul li:nth-child(3) a {
@@ -108,30 +108,21 @@ header {
     height: 20px !important; /* Novo tamanho desejado */
 }
 
-
-
-
-
-
-
-
 /* Estilos para o carrossel */
 .banner-container {
-    width: 100%; /* Largura total */
-    height: 980px; /* Altura do carrossel aumentada */
     overflow: hidden; /* Esconde as imagens fora do contêiner */
     position: relative;
 }
 
 .banner-img {
     width: 100%; /* Cada imagem ocupa 100% da largura do carrossel */
-    height: 100%; /* Cada imagem ocupa 100% da altura do carrossel */
+    height: 980px; /* Cada imagem ocupa 100% da altura do carrossel */
     object-fit: cover; /* A imagem cobre todo o espaço do carrossel */
     object-position: center; /* Centraliza a imagem */
 }
 .banner-slide {
     display: flex; /* Coloca as imagens uma ao lado da outra */
-    transition: transform 1s ease; /* Transição suave entre as imagens */
+    transition: transform 2s ease;
 }
 
 .banner-img {
@@ -139,4 +130,90 @@ header {
     height: 100%;
     object-fit: contain; /* Ajusta a imagem para caber no contêiner sem cortar */
     object-position: center;
+}
+
+/* Botão estilizado */
+.btn-conheca {
+    position: absolute;
+    width: 150px;
+    height: 43px;
+    top: 90%; /* Posiciona no meio vertical da banner-container */
+    left: 50%; /* Posiciona no meio horizontal da banner-container */
+    transform: translate(-50%, -50%); /* Centraliza completamente o botão */
+    padding: 12px 24px;
+    gap: 10px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 14px;
+    font-family: open sans, sans-serif;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: underline;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    z-index: 3;
+}
+
+/* Categorias */
+
+
+.categorias h1 {
+    font-family: open sans, sans-serif;
+    font-size: 28px;
+    margin-left: 80px;
+    margin-top: 32px; /* Reduz a distância da div do banner */
+    margin-bottom: 32px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap; /* Garante que os cards fiquem na mesma linha */
+    margin-right: 80px; /* Remove margens laterais desnecessárias */
+    margin-left: 80px; 
+    margin-bottom: 64px;
+}
+
+.card {
+    text-align: center;
+}
+.card img {
+    max-width: 100%; /* Garante que a imagem se ajuste ao tamanho do card */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.card p {
+    margin-top: 16px;
+    font-family: open sans, sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+/* banner navegação */
+
+.banner-navegação {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+.banner-navegação img {
+    height: auto; /* Mantém a proporção original das imagens */
+    object-fit: contain; /* Garante que a imagem caiba dentro do espaço sem distorcer */
+}
+
+.banner-grande {
+    max-width: 63%; /* Ajusta o tamanho da imagem grande */
+}
+
+.banner-pequeno {
+    max-width: 36%; /* Ajusta o tamanho da imagem pequena */
 }
