@@ -1,31 +1,92 @@
+window.onload = function () {
+    const modal = document.getElementById('modal');
+    const closeButton = document.querySelector('.close-button');
+    const faixaCep = document.getElementById('faixa-cep');
+    const localidade = document.getElementById('localidade');
+    const alterarCep = document.getElementById('alterar-cep');
+    const cepInput = document.getElementById('cep');
+    const form = document.getElementById('cep-form');
+  
+    // Verifica se há um CEP salvo no LocalStorage
+    const savedCep = localStorage.getItem('cep');
+    const savedLocalidade = localStorage.getItem('localidade');
+  
+    if (savedCep && savedLocalidade) {
+      faixaCep.style.display = 'flex';
+      localidade.textContent = `${savedLocalidade} (${savedCep})`;
+    } else {
+      modal.style.display = 'flex';
+    }
+  
+    closeButton.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+  
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const cep = cepInput.value;
+      const cidade = document.getElementById('cidade').value;
+      const estado = document.getElementById('estado').value;
+  
+      if (cep && cidade && estado) {
+        localStorage.setItem('cep', cep);
+        localStorage.setItem('localidade', `${cidade}, ${estado}`);
+  
+        localidade.textContent = `${cidade}, ${estado} (${cep})`;
+        faixaCep.style.display = 'flex';
+
+        modal.style.display = 'none';
+      }
+    });
+
+    alterarCep.addEventListener('click', function (e) {
+      e.preventDefault();
+      modal.style.display = 'flex';
+
+      const cep = localStorage.getItem('cep');
+      const [cidade, estado] = (localStorage.getItem('localidade') || '').split(', ');
+  
+      if (cep) cepInput.value = cep;
+      if (cidade) document.getElementById('cidade').value = cidade;
+      if (estado) document.getElementById('estado').value = estado;
+    });
+  };
+  
+// efeito header
+
 let currentIndex = 0;
 const images = document.querySelectorAll('.banner-img');
 const totalImages = images.length;
 
 function changeSlide() {
-    currentIndex = (currentIndex + 1) % totalImages; // Avança para a próxima imagem
-    const newTransformValue = -100 * currentIndex + '%'; // Move o slide
+    currentIndex = (currentIndex + 1) % totalImages;
+    const newTransformValue = -100 * currentIndex + '%';
     document.querySelector('.banner-slide').style.transform = `translateX(${newTransformValue})`;
 }
 
-// Muda a imagem a cada 3 segundos
-setInterval(changeSlide, 3000);
+setInterval(changeSlide, 4000); // segundos
 
-// Seleciona os elementos
 const header = document.querySelector('header');
 const logo = document.getElementById('logo');
-const iconProduto = document.querySelector('.icon-produto'); // Seleciona o ícone de produtos
+const iconProduto = document.querySelector('.icon-produto');
 
 // Adiciona o evento de rolagem
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) { // Quando a página é rolada mais de 50px
+    if (window.scrollY > 50) { 
         header.classList.add('scrolled');
-        logo.setAttribute('src', 'img/logo-preto.png'); // Altera para logo preto
-        iconProduto.setAttribute('src', 'img/angulo-direito-preto.png'); // Altera para ícone preto
-    } else {
+        logo.setAttribute('src', 'img/logo-preto.png');
+        iconProduto.setAttribute('src', 'img/angulo-direito-preto.png');
+        } else {
         header.classList.remove('scrolled');
-        logo.setAttribute('src', 'img/logo-branco.png'); // Retorna para logo branco
-        iconProduto.setAttribute('src', 'img/angulo-direito.png'); // Retorna para ícone original
+        logo.setAttribute('src', 'img/logo-branco.png');
+        iconProduto.setAttribute('src', 'img/angulo-direito.png');
     }
 });
 

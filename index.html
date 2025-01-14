@@ -6,13 +6,42 @@
     <title>Bebecê</title>
     <!-- Link para o arquivo CSS -->
     <link rel="stylesheet" href="style.css">
-</head>
+</head>  
 <body>
     <header>
-        <!-- Faixa de CEP -->
-        <div class="faixa-cep">
-            Você está em: São Paulo
-        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <h2>Personalize sua experiência e encontre produtos perto de você!</h2>
+              <form id="cep-form">
+                <label for="cep">Código postal*</label>
+                <input type="text" id="cep" placeholder="00000-000" required>
+                <div class="form-row">
+                  <div>
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" placeholder="Opcional">
+                  </div>
+                  <div>
+                    <label for="estado">Estado</label>
+                    <select id="estado">
+                      <option value="" disabled selected>Opcional</option>
+                      <option value="SP">SP</option>
+                      <option value="RJ">RJ</option>
+                      <option value="MG">MG</option>
+                      <!-- Adicione mais estados -->
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="save-button">Salvar endereço</button>
+              </form>
+            </div>
+          </div>
+          
+          
+          <div class="faixa-cep" id="faixa-cep">
+            Você está em: <span id="localidade">São Paulo</span>, <a href="#" id="alterar-cep">Alterar</a>
+          </div>          
+          
         <div class="logo">
             <img id="logo" src="img/logo-branco.png" alt="Logo Bebecê">
             <ul>
