@@ -6,8 +6,6 @@ window.onload = function () {
     const alterarCep = document.getElementById('alterar-cep');
     const cepInput = document.getElementById('cep');
     const form = document.getElementById('cep-form');
-  
-    // Verifica se há um CEP salvo no LocalStorage
     const savedCep = localStorage.getItem('cep');
     const savedLocalidade = localStorage.getItem('localidade');
   
