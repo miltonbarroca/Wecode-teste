@@ -181,7 +181,6 @@ header ul li a {
 
 /* Categorias */
 
-
 .categorias h1 {
     font-family: 'open sans', sans-serif;
     font-size: 28px;
@@ -243,6 +242,21 @@ header ul li a {
 
 /* lançamentos */
 
+.lancamentos {
+    background-color: #ffffff;
+    padding-top: 15px;
+}
+
+.lancamentos-container {
+    display: flex;
+    flex-wrap: nowrap;  /* Garante que os cards fiquem na mesma linha */
+    gap: 16px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 32px;
+    justify-content: flex-start; /* Garante que os cards fiquem alinhados à esquerda */
+}
+
 .lancamentos h1 {
     font-family: 'open sans', sans-serif;
     font-size: 28px;
@@ -250,23 +264,26 @@ header ul li a {
     margin-top: 32px;
 }
 
-.lancamentos .cards-container {
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-bottom: -220px;
+.card-lancamento {
+    width: 330px;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
-/*conheca mais*/
+.card-lancamento img {
+    width: 100%;  /* Garante que a imagem ocupe toda a largura do card */
+    height: auto;  /* Mantém a proporção da imagem */
+}
 
-.conheca-mais{
+/* Conheça mais */
+.conheca-mais {
     background-color: #F7F7F7;
-    padding-top: 15px;
+    padding: 15px 80px 32px 80px; /* Padding ajustado para alinhar com o restante */
 }
 
 .conheca-mais h1 {
     font-family: 'open sans', sans-serif;
     font-size: 28px;
-    margin-left: 80px;
     margin-bottom: 5px;
 }
 
@@ -274,46 +291,156 @@ header ul li a {
     font-family: 'open sans', sans-serif;
     font-style: italic;
     font-size: 18px;
-    margin-left: 80px;
-    margin-right: 80px;
     margin-bottom: 32px;
     color: #8A8A8A;
     font-weight: 300;
     line-height: 1.51;
 }
 
-/*carrossel cards*/
-
+/* Carrossel */
 .carrossel {
     display: flex;
-    overflow: hidden;
-    width: 100%;
+    justify-content: space-between; /* Distribui os cards com espaço entre eles */
+    gap: 16px; /* Espaçamento entre os cards */
     margin-top: 20px;
-    position: relative;
+    overflow: hidden; /* Impede que conteúdo extra transborde */
 }
 
-.card {
-    width: 576px; /* Largura do card */
-    height: 513px; /* Altura do card */
-    padding: 16px;
+.card-blog {
+    flex: 1; /* Faz os cards ocuparem espaço igual */
+    max-width: 576px; /* Define a largura máxima de cada card */
+    height: 513px;
     box-sizing: border-box;
 }
 
-.card h2 {
+.card-blog img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do card */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.card-blog h2 {
+    margin-top: 10px;
     font-family: 'Open Sans', sans-serif;
     font-size: 28px;
     margin-bottom: 10px;
 }
 
-.card p {
+.card-blog p {
     text-align: left;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     margin: 0;
+    margin-bottom: 16px; /* Espaço entre o texto e o link */
 }
 
-a {
+.card-blog a {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: black;
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* newsletter */
+
+.newsletter {
+    background-color: #FFE9DC;
+    color: #B11B26;
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+}
+
+.newsletter h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+.btn-enviar {
+    height: 46px;
+    width: 300px;
+    padding: 12px 24px;
+    background-color: #B11B26;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    height: 46px;
+    width: 300px;
+    padding: 12px 24px;
+    border: 1px solid #B11B26;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin-right: 16px;
+}
+
+.footer {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #B11B26;
+    height: 424px;
+}
+
+#logo-footer {
+    color: #FFE9DC;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B11B26;
+    color: white;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-links div h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.footer-links a {
+    display: block;
+    color: #FFE9DC;
+    text-decoration: none;
+    margin-bottom: 5px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
 }

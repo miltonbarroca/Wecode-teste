@@ -11,7 +11,6 @@ function changeSlide() {
 // Muda a imagem a cada 3 segundos
 setInterval(changeSlide, 3000);
 
-
 // Seleciona o header e a imagem do logo
 const header = document.querySelector('header');
 const logo = document.querySelector('#logo'); // Certifique-se de que o ID está correto
