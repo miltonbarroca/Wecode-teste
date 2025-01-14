@@ -53,7 +53,7 @@ header ul li a {
     align-items: center;
     color: white;
     font-size: 14px;
-    font-family: open sans, sans-serif;
+    font-family: 'open sans', sans-serif;
 }
 
 /* Estilos para o logo e a lista */
@@ -82,7 +82,7 @@ header ul li a {
 
 .logo ul li {
     margin-right: 40px; /* Espaçamento entre os itens do menu */
-    font-family: open sans, sans-serif;
+    font-family: 'open sans', sans-serif;
 }
 
 .logo ul li a {
@@ -138,10 +138,10 @@ header ul li a {
 }
 
 .banner-img {
-    width: 100%; /* Cada imagem ocupa 100% da largura do carrossel */
-    height: 980px; /* Cada imagem ocupa 100% da altura do carrossel */
-    object-fit: cover; /* A imagem cobre todo o espaço do carrossel */
-    object-position: center; /* Centraliza a imagem */
+    width: 100%;
+    height: 980px;
+    object-fit: cover;
+    object-position: center;
 }
 .banner-slide {
     display: flex; /* Coloca as imagens uma ao lado da outra */
@@ -169,7 +169,7 @@ header ul li a {
     background-color: transparent;
     color: white;
     font-size: 14px;
-    font-family: open sans, sans-serif;
+    font-family: 'open sans', sans-serif;
     white-space: nowrap;
     text-align: center;
     text-decoration: underline;
@@ -183,7 +183,7 @@ header ul li a {
 
 
 .categorias h1 {
-    font-family: open sans, sans-serif;
+    font-family: 'open sans', sans-serif;
     font-size: 28px;
     margin-left: 80px;
     margin-top: 32px; /* Reduz a distância da div do banner */
@@ -210,7 +210,7 @@ header ul li a {
 
 .card p {
     margin-top: 16px;
-    font-family: open sans, sans-serif;
+    font-family: 'open sans', sans-serif;
     font-size: 16px;
     color: #000000;
 }
@@ -239,4 +239,81 @@ header ul li a {
 
 .banner-pequeno {
     max-width: 36%; /* Ajusta o tamanho da imagem pequena */
+}
+
+/* lançamentos */
+
+.lancamentos h1 {
+    font-family: 'open sans', sans-serif;
+    font-size: 28px;
+    margin-left: 80px;
+    margin-top: 32px;
+}
+
+.lancamentos .cards-container {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: -220px;
+}
+
+/*conheca mais*/
+
+.conheca-mais{
+    background-color: #F7F7F7;
+    padding-top: 15px;
+}
+
+.conheca-mais h1 {
+    font-family: 'open sans', sans-serif;
+    font-size: 28px;
+    margin-left: 80px;
+    margin-bottom: 5px;
+}
+
+.conheca-mais p {
+    font-family: 'open sans', sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 32px;
+    color: #8A8A8A;
+    font-weight: 300;
+    line-height: 1.51;
+}
+
+/*carrossel cards*/
+
+.carrossel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+.card {
+    width: 576px; /* Largura do card */
+    height: 513px; /* Altura do card */
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.card h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: black;
 }
