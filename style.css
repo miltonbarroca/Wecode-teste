@@ -172,13 +172,14 @@ header ul li a {
     font-family: 'open sans', sans-serif;
     white-space: nowrap;
     text-align: center;
-    text-decoration: underline;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     transition: opacity 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     z-index: 3;
 }
-
+.btn-conheca:hover {
+    text-decoration: underline;
+}
 /* Categorias */
 
 .categorias h1 {
@@ -382,9 +383,12 @@ input {
 
 .footer {
     display: flex;
-    justify-content: left;
-    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     background-color: #B11B26;
+    color: white;
+    padding: 40px 0; /* Ajuste o padding para criar espaçamento superior/inferior */
+    font-family: Arial, sans-serif;
     height: 424px;
 }
 
@@ -392,21 +396,12 @@ input {
     color: #FFE9DC;
 }
 
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #B11B26;
-    color: white;
-    padding: 20px 0;
-    font-family: Arial, sans-serif;
-}
-
 .footer-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     max-width: 1200px;
+    align-items: center;
 }
 
 .social-icons {
