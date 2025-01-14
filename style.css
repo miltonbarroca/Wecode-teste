@@ -16,8 +16,15 @@ header {
     right: 0;
     z-index: 2;
     background-color: transparent;
+    position: fixed;
 }
 
+/* Header com fundo branco */
+header.scrolled {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: Adiciona uma sombra para destacar */
+    color: black;
+}
 
 /* Estilos para a faixa de CEP */
 .faixa-cep {
