@@ -19,6 +19,13 @@ header {
     position: fixed;
 }
 
+.icon-produto {
+    width: 8px;
+    height: 8px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
 /* Header com fundo branco */
 header.scrolled {
     background-color: white;
@@ -35,12 +42,12 @@ header.scrolled ul li a {
 /* Links padrão (quando o header é transparente) */
 header ul li a {
     color: white;
-    transition: color 0.3s; /* Transição suave */
+    transition: color 0.3s;
 }
 
 .scrolled .header-icons div {
-    filter: invert(1); /* Inverte as cores dos ícones */
-  }
+    filter: invert(1);
+}
 
 /* Estilos para a faixa de CEP */
 .faixa-cep {
@@ -68,32 +75,51 @@ header ul li a {
     box-sizing: border-box; /* Inclui padding e margin no tamanho total */
 }
 
-/* Ajusta o logo */
 .logo img {
-    margin-right: 48px; /* Espaçamento entre logo e a lista */
+    margin-right: 40px;
 }
 
-/* Estiliza a lista */
+/* lista */
 .logo ul {
     display: flex;
-    list-style-type: none; /* Remove marcadores de lista */
+    list-style-type: none;
     padding: 0;
 }
 
 .logo ul li {
     margin-right: 40px; /* Espaçamento entre os itens do menu */
-    font-family: 'open sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    position: relative; /* Necessário para o pseudo-elemento no hover */
 }
 
 .logo ul li a {
-    text-decoration: none; /* Remove sublinhado */
-    color: rgb(255, 255, 255); /* Cor do texto */
-}
-/* Seleciona o link específico "Outlet" */
-.logo ul li:nth-child(3) a {
-    color: #B11B26; /* Altera a cor para #B11B26 */
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    position: relative;
+    transition: color 0.3s ease;
 }
 
+/* Adiciona um destaque embaixo do item (como uma linha ou fundo) */
+.logo ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -27px; /* Posição da linha */
+    left: 0;
+    width: 0;
+    height: 2px; /* Espessura da linha */
+    background-color: #000000; /* Cor da linha */
+    transition: width 0.3s ease; /* Animação suave */
+}
+
+/* Hover na linha */
+.logo ul li a:hover::after {
+    width: 100%;
+}
+
+/* Seleciona o link específico "Outlet" */
+.logo ul li:nth-child(3) a {
+    color: #B11B26;
+}
 
 /* Estiliza o container dos ícones */
 .header-icons {
