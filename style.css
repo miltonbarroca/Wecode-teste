@@ -1,11 +1,10 @@
-/* Reseta margens e paddings para garantir um layout limpo */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Alinha todos os itens dentro do header */
+/*header */
 header {
     display: flex;
     flex-direction: column;
@@ -29,17 +28,17 @@ header {
 /* Header com fundo branco */
 header.scrolled {
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: Adiciona uma sombra para destacar */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Suaviza a transição */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* Links dentro do header com fundo branco */
 header.scrolled ul li a {
     color: black;
-    transition: color 0.3s; /* Transição suave */
+    transition: color 0.3s;
 }
 
-/* Links padrão (quando o header é transparente) */
+/* Links padrão */
 header ul li a {
     color: white;
     transition: color 0.3s;
@@ -49,7 +48,7 @@ header ul li a {
     filter: invert(1);
 }
 
-/* Estilos para a faixa de CEP */
+/* faixa de CEP */
 .faixa-cep {
     width: 100%;
     height: 39px;
@@ -63,16 +62,16 @@ header ul li a {
     font-family: 'open sans', sans-serif;
 }
 
-/* Estilos para o logo e a lista */
+/* logo e a lista */
 .logo {
     display: flex;
-    align-items: center; /* Alinha verticalmente */
-    justify-content: flex-start; /* Alinha à esquerda */
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 24px;
     margin-bottom: 24px;
-    width: calc(100% - 80px); /* Deixa o logo ocupar o espaço restante */
-    padding-left: 80px; /* Espaço de 80px da borda esquerda */
-    box-sizing: border-box; /* Inclui padding e margin no tamanho total */
+    width: calc(100% - 80px);
+    padding-left: 80px;
+    box-sizing: border-box;
 }
 
 .logo img {
@@ -87,9 +86,9 @@ header ul li a {
 }
 
 .logo ul li {
-    margin-right: 40px; /* Espaçamento entre os itens do menu */
+    margin-right: 40px; 
     font-family: 'Open Sans', sans-serif;
-    position: relative; /* Necessário para o pseudo-elemento no hover */
+    position: relative; 
 }
 
 .logo ul li a {
@@ -99,16 +98,15 @@ header ul li a {
     transition: color 0.3s ease;
 }
 
-/* Adiciona um destaque embaixo do item (como uma linha ou fundo) */
 .logo ul li a::after {
     content: '';
     position: absolute;
     bottom: -27px; /* Posição da linha */
     left: 0;
     width: 0;
-    height: 2px; /* Espessura da linha */
-    background-color: #000000; /* Cor da linha */
-    transition: width 0.3s ease; /* Animação suave */
+    height: 2px; /* Espessura */
+    background-color: #000000;
+    transition: width 0.3s ease;
 }
 
 /* Hover na linha */
@@ -116,23 +114,21 @@ header ul li a {
     width: 100%;
 }
 
-/* Seleciona o link específico "Outlet" */
+/* Outlet */
 .logo ul li:nth-child(3) a {
     color: #B11B26;
 }
 
-/* Estiliza o container dos ícones */
 .header-icons {
-    position: absolute; /* Posiciona em relação ao header */
-    top: calc(39px + 30px); /* 30px abaixo da faixa (39px é a altura da faixa) */
-    right: 80px; /* 80px da borda direita */
+    position: absolute; 
+    top: calc(39px + 30px); 
+    right: 80px; 
     display: flex;
-    justify-content: flex-end; /* Alinha os ícones à direita */
-    align-items: center; /* Centraliza verticalmente */
-    gap: 24px; /* Espaçamento entre os ícones */
+    justify-content: flex-end; 
+    align-items: center; 
+    gap: 24px; 
 }
 
-/* Estilo base para os ícones */
 .header-icons div {
     width: 20px;
     height: 20px;
@@ -143,23 +139,23 @@ header ul li a {
 
 /* Ícone de busca */
 .icone-search {
-    background-image: url('img/icone-search.png'); /* Caminho do ícone de busca */
+    background-image: url('img/icone-search.png');
 }
 
 /* Ícone de conta */
 .icone-conta {
-    background-image: url('img/icone-conta.png'); /* Caminho do ícone de conta */
+    background-image: url('img/icone-conta.png');
 }
 
 .icone-carrinho {
     background-image: url('img/icone-carrinho.png');
-    width: 35px !important; /* Novo tamanho desejado */
-    height: 20px !important; /* Novo tamanho desejado */
+    width: 35px !important;
+    height: 20px !important;
 }
 
 /* Estilos para o carrossel */
 .banner-container {
-    overflow: hidden; /* Esconde as imagens fora do contêiner */
+    overflow: hidden;
     position: relative;
 }
 
@@ -170,14 +166,14 @@ header ul li a {
     object-position: center;
 }
 .banner-slide {
-    display: flex; /* Coloca as imagens uma ao lado da outra */
+    display: flex;
     transition: transform 2s ease;
 }
 
 .banner-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta a imagem para caber no contêiner sem cortar */
+    object-fit: contain;
     object-position: center;
 }
 
@@ -186,9 +182,9 @@ header ul li a {
     position: absolute;
     width: 150px;
     height: 43px;
-    top: 90%; /* Posiciona no meio vertical da banner-container */
-    left: 50%; /* Posiciona no meio horizontal da banner-container */
-    transform: translate(-50%, -50%); /* Centraliza completamente o botão */
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 12px 24px;
     gap: 10px;
     border: 1px solid white;
@@ -212,7 +208,7 @@ header ul li a {
     font-family: 'open sans', sans-serif;
     font-size: 28px;
     margin-left: 80px;
-    margin-top: 32px; /* Reduz a distância da div do banner */
+    margin-top: 32px;
     margin-bottom: 32px;
 }
 
@@ -220,8 +216,8 @@ header ul li a {
     display: flex;
     justify-content: center;
     gap: 16px;
-    flex-wrap: nowrap; /* Garante que os cards fiquem na mesma linha */
-    margin-right: 80px; /* Remove margens laterais desnecessárias */
+    flex-wrap: nowrap;
+    margin-right: 80px;
     margin-left: 80px; 
     margin-bottom: 64px;
 }
@@ -230,8 +226,8 @@ header ul li a {
     text-align: center;
 }
 .card img {
-    max-width: 100%; /* Garante que a imagem se ajuste ao tamanho do card */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%;
+    height: auto;
 }
 
 .card p {
@@ -255,16 +251,16 @@ header ul li a {
 
 
 .banner-navegação img {
-    height: auto; /* Mantém a proporção original das imagens */
-    object-fit: contain; /* Garante que a imagem caiba dentro do espaço sem distorcer */
+    height: auto;
+    object-fit: contain;
 }
 
 .banner-grande {
-    max-width: 63%; /* Ajusta o tamanho da imagem grande */
+    max-width: 63%;
 }
 
 .banner-pequeno {
-    max-width: 36%; /* Ajusta o tamanho da imagem pequena */
+    max-width: 36%;
 }
 
 /* lançamentos */
@@ -276,12 +272,12 @@ header ul li a {
 
 .lancamentos-container {
     display: flex;
-    flex-wrap: nowrap;  /* Garante que os cards fiquem na mesma linha */
+    flex-wrap: nowrap;
     gap: 16px;
     margin-left: 80px;
     margin-right: 80px;
     margin-bottom: 32px;
-    justify-content: flex-start; /* Garante que os cards fiquem alinhados à esquerda */
+    justify-content: flex-start;
 }
 
 .lancamentos h1 {
@@ -298,14 +294,14 @@ header ul li a {
 }
 
 .card-lancamento img {
-    width: 100%;  /* Garante que a imagem ocupe toda a largura do card */
-    height: auto;  /* Mantém a proporção da imagem */
+    width: 100%;
+    height: auto;
 }
 
 /* Conheça mais */
 .conheca-mais {
     background-color: #F7F7F7;
-    padding: 15px 80px 32px 80px; /* Padding ajustado para alinhar com o restante */
+    padding: 15px 80px 32px 80px;
 }
 
 .conheca-mais h1 {
@@ -327,22 +323,22 @@ header ul li a {
 /* Carrossel */
 .carrossel {
     display: flex;
-    justify-content: space-between; /* Distribui os cards com espaço entre eles */
-    gap: 16px; /* Espaçamento entre os cards */
+    justify-content: space-between;
+    gap: 16px;
     margin-top: 20px;
-    overflow: hidden; /* Impede que conteúdo extra transborde */
+    overflow: hidden;
 }
 
 .card-blog {
-    flex: 1; /* Faz os cards ocuparem espaço igual */
-    max-width: 576px; /* Define a largura máxima de cada card */
+    flex: 1;
+    max-width: 576px;
     height: 513px;
     box-sizing: border-box;
 }
 
 .card-blog img {
-    width: 100%; /* Garante que a imagem ocupe toda a largura do card */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 100%;
+    height: auto;
 }
 
 .card-blog h2 {
@@ -357,14 +353,14 @@ header ul li a {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     margin: 0;
-    margin-bottom: 16px; /* Espaço entre o texto e o link */
+    margin-bottom: 16px;
 }
 
 .card-blog a {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: black;
-    text-decoration: none; /* Remove o sublinhado */
+    text-decoration: none; 
 }
 
 /* newsletter */
@@ -409,11 +405,11 @@ input {
 
 .footer {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     background-color: #B11B26;
     color: white;
-    padding: 40px 0; /* Ajuste o padding para criar espaçamento superior/inferior */
+    padding: 40px 0;
     font-family: Arial, sans-serif;
     height: 424px;
 }
