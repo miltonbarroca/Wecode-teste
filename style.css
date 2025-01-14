@@ -16,8 +16,31 @@ header {
     right: 0;
     z-index: 2;
     background-color: transparent;
+    position: fixed;
 }
 
+/* Header com fundo branco */
+header.scrolled {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: Adiciona uma sombra para destacar */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Suaviza a transição */
+}
+
+/* Links dentro do header com fundo branco */
+header.scrolled ul li a {
+    color: black;
+    transition: color 0.3s; /* Transição suave */
+}
+
+/* Links padrão (quando o header é transparente) */
+header ul li a {
+    color: white;
+    transition: color 0.3s; /* Transição suave */
+}
+
+.scrolled .header-icons div {
+    filter: invert(1); /* Inverte as cores dos ícones */
+  }
 
 /* Estilos para a faixa de CEP */
 .faixa-cep {
