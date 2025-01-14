@@ -7,56 +7,50 @@ window.onload = function () {
     const cepInput = document.getElementById('cep');
     const form = document.getElementById('cep-form');
     const savedCep = localStorage.getItem('cep');
-    const savedLocalidade = localStorage.getItem('localidade');
   
-    if (savedCep && savedLocalidade) {
-      faixaCep.style.display = 'flex';
-      localidade.textContent = `${savedLocalidade} (${savedCep})`;
+    // Se um CEP já estiver salvo, exibe na faixa
+    if (savedCep) {
+        faixaCep.style.display = 'flex';
+        localidade.textContent = savedCep;
     } else {
-      modal.style.display = 'flex';
+        modal.style.display = 'flex';
     }
   
     closeButton.addEventListener('click', function () {
-      modal.style.display = 'none';
+        modal.style.display = 'none';
     });
   
     window.addEventListener('click', function (event) {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     });
   
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
+        e.preventDefault();
   
-      const cep = cepInput.value;
-      const cidade = document.getElementById('cidade').value;
-      const estado = document.getElementById('estado').value;
+        const cep = cepInput.value;
   
-      if (cep && cidade && estado) {
-        localStorage.setItem('cep', cep);
-        localStorage.setItem('localidade', `${cidade}, ${estado}`);
+        if (cep) {
+            // Salva o CEP e exibe na faixa
+            localStorage.setItem('cep', cep);
+            localidade.textContent = cep;
+            faixaCep.style.display = 'flex';
   
-        localidade.textContent = `${cidade}, ${estado} (${cep})`;
-        faixaCep.style.display = 'flex';
-
-        modal.style.display = 'none';
-      }
+            modal.style.display = 'none';
+        }
     });
 
     alterarCep.addEventListener('click', function (e) {
-      e.preventDefault();
-      modal.style.display = 'flex';
+        e.preventDefault();
+        modal.style.display = 'flex';
 
-      const cep = localStorage.getItem('cep');
-      const [cidade, estado] = (localStorage.getItem('localidade') || '').split(', ');
-  
-      if (cep) cepInput.value = cep;
-      if (cidade) document.getElementById('cidade').value = cidade;
-      if (estado) document.getElementById('estado').value = estado;
+        // Preenche o campo de CEP no modal
+        const cep = localStorage.getItem('cep');
+        cepInput.value = cep || '';
     });
-  };
-  
+};
+
 // efeito header
 
 let currentIndex = 0;

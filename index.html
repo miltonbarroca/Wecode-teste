@@ -16,6 +16,7 @@
               <form id="cep-form">
                 <label for="cep">Código postal*</label>
                 <input type="text" id="cep" placeholder="00000-000" required>
+                
                 <div class="form-row">
                   <div>
                     <label for="cidade">Cidade</label>
@@ -24,24 +25,25 @@
                   <div>
                     <label for="estado">Estado</label>
                     <select id="estado">
-                      <option value="" disabled selected>Opcional</option>
+                      <option value="" selected>Opcional</option>
                       <option value="SP">SP</option>
                       <option value="RJ">RJ</option>
                       <option value="MG">MG</option>
-                      <!-- Adicione mais estados -->
+                      <!-- Adicione mais estados conforme necessário -->
                     </select>
                   </div>
                 </div>
+                
                 <button type="submit" class="save-button">Salvar endereço</button>
               </form>
             </div>
           </div>
           
-          
           <div class="faixa-cep" id="faixa-cep">
-            Você está em: <span id="localidade">São Paulo</span>, <a href="#" id="alterar-cep">Alterar</a>
+            Você está em: <span id="localidade">()</span> 
+            <a href="#" id="alterar-cep">Alterar</a> 
           </div>          
-          
+                
         <div class="logo">
             <img id="logo" src="img/logo-branco.png" alt="Logo Bebecê">
             <ul>
