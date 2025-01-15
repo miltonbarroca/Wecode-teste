@@ -5,6 +5,7 @@
 }
 
 /* Estilização do modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -54,20 +55,21 @@
 
 .form-row {
     display: flex;
-    justify-content: space-between;
-    gap: 51px; /* Espaçamento horizontal */
-    margin-bottom: 24px; /* Espaço abaixo do grupo */
+    gap: 4px;
+    margin-bottom: 24px;
 }
 
-.form-group {
-    width: 100%;
-}
-
-label {
-    display: block;
+#label-cidade {
     font-size: 14px;
-    margin-bottom: 5px;
-    color: #333;
+
+}
+
+#label-estado {
+    font-size: 14px;
+}
+
+#estado {
+    width: 271px;
 }
 
 input {
@@ -80,7 +82,10 @@ input {
     margin-bottom: 10px;
 }
 
-
+#input-cidade {
+    border: 1px solid #8a8a8a;
+    width: 271px;
+}
 
 select {
     width: 100%;
