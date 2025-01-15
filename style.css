@@ -77,13 +77,9 @@
     width: 271px;
 }
 
-#placeholder {
-    font-style: italic;
+#estado {
     color: gray;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    background-color: #f9f9f9;
+    font-style: italic;
 }
 
 input {
