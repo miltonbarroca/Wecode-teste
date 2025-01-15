@@ -69,6 +69,7 @@ window.onload = function () {
     }
 };
 
+
 // efeito header
 
 let currentIndex = 0;
