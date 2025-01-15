@@ -480,26 +480,32 @@ input {
     cursor: pointer;
 }
 
+/* footer */
+
 .footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Logo na esquerda, elementos restantes centralizados */
     align-items: center;
     background-color: #B11B26;
     color: white;
-    padding: 40px 0;
+    padding: 40px 0px;
     font-family: Arial, sans-serif;
     height: 424px;
 }
 
 #logo-footer {
     color: #FFE9DC;
+    margin-right: 20px; /* Espaçamento para separar do restante */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     align-items: center;
+    gap: 50px;
+    width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .social-icons {
@@ -514,13 +520,17 @@ input {
 
 .footer-links {
     display: flex;
-    gap: 50px;
+    gap: 80px;
+    align-items: center;
+}
+
+.footer-links div {
+    text-align: center;
 }
 
 .footer-links div h4 {
     margin-bottom: 10px;
     font-size: 16px;
-    text-align: center;
     white-space: nowrap;
 }
 
@@ -529,8 +539,6 @@ input {
     color: #FFE9DC;
     text-decoration: none;
     margin-bottom: 5px;
-    text-align: center;
-    white-space: nowrap;
     font-size: 14px;
 }
 
