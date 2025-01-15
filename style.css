@@ -143,14 +143,14 @@ header {
     position: fixed;
 }
 
-/* Header com fundo branco */
+/* Header fundo branco */
+
 header.scrolled {
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* Links dentro do header com fundo branco */
 header.scrolled ul li a {
     color: black;
     transition: color 0.3s;
@@ -179,7 +179,7 @@ header ul li a {
     color: white;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
-    display: none; /* Inicialmente escondida */
+    display: none;
 }
 
 .faixa-cep a {
