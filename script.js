@@ -8,7 +8,6 @@ window.onload = function () {
     const form = document.getElementById('cep-form');
     const savedCep = localStorage.getItem('cep');
   
-    // Se um CEP já estiver salvo, exibe na faixa
     if (savedCep) {
         faixaCep.style.display = 'flex';
         localidade.textContent = savedCep;
@@ -45,7 +44,6 @@ window.onload = function () {
         e.preventDefault();
         modal.style.display = 'flex';
 
-        // Preenche o campo de CEP no modal
         const cep = localStorage.getItem('cep');
         cepInput.value = cep || '';
     });

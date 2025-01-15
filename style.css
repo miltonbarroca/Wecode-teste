@@ -19,20 +19,21 @@
 }
 
 .modal-content {
+    position: relative;
     background: #fff;
     padding: 48px 32px 0 32px;
     text-align: left;
     width: 610px;
     height: 394px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
-    color: #333;
+    font-family: 'Open sans', sans-serif;
+    font-size: 14px;
+    color: #000000;
 }
 
 .modal-content h2 {
     font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 48px;
     white-space: nowrap;
 }
 
@@ -42,28 +43,53 @@
     right: 15px;
     font-size: 18px;
     font-weight: bold;
-    color: #ccc;
+    color: #8A8A8A;
     cursor: pointer;
+    background-color: #EEEEEE;
 }
 
 .close-button:hover {
-    color: red;
+    color: #B11B26;
 }
 
 .form-row {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 51px; /* Espaçamento horizontal */
+    margin-bottom: 24px; /* Espaço abaixo do grupo */
 }
 
-input, select {
+.form-group {
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #8A8A8A;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
     background-color: #f9f9f9;
     color: #333;
+    margin-bottom: 10px;
 }
 
 input::placeholder, select::placeholder {
@@ -72,7 +98,8 @@ input::placeholder, select::placeholder {
 }
 
 .save-button {
-    background: #B11B26;
+    align-items: center;
+    background-color: #B11B26;
     color: white;
     border: none;
     padding: 12px 0;
@@ -113,7 +140,7 @@ header.scrolled ul li a {
     transition: color 0.3s;
 }
 
-/* Links padrão */
+/* Links */
 header ul li a {
     color: white;
     transition: color 0.3s;
@@ -473,7 +500,7 @@ header ul li a {
     margin-right: 48px;
 }
 
-input {
+#newsletter-input {
     height: 46px;
     width: 300px;
     padding: 12px 24px;
