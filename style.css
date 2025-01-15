@@ -133,7 +133,6 @@ header ul li a {
     cursor: pointer;
 }
 
-
 /* logo e a lista */
 .logo {
     display: flex;
@@ -373,7 +372,7 @@ header ul li a {
 /* Conheça mais */
 .conheca-mais {
     background-color: #F7F7F7;
-    padding: 15px 80px 32px 80px;
+    padding: 15px 80px 56px 80px;
 }
 
 .conheca-mais h1 {
@@ -404,7 +403,7 @@ header ul li a {
 .card-blog {
     flex: 1;
     max-width: 576px;
-    height: 513px;
+    height: 100%;
     box-sizing: border-box;
 }
 
@@ -432,7 +431,11 @@ header ul li a {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: black;
-    text-decoration: none; 
+    text-decoration: none;
+}
+
+.card-blog a:hover {
+    text-decoration: underline;
 }
 
 /* newsletter */
@@ -440,17 +443,29 @@ header ul li a {
 .newsletter {
     background-color: #FFE9DC;
     color: #B11B26;
-    padding: 32px 80px;
+    padding: 20px 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 16px;
     height: 110px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .newsletter h1 {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     margin: 0;
+    margin-right: 48px;
+}
+
+input {
+    height: 46px;
+    width: 300px;
+    padding: 12px 24px;
+    border: 1px solid #B11B26;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
 }
 
 .btn-enviar {
@@ -463,16 +478,6 @@ header ul li a {
     font-size: 14px;
     border: none;
     cursor: pointer;
-}
-
-input {
-    height: 46px;
-    width: 300px;
-    padding: 12px 24px;
-    border: 1px solid #B11B26;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    margin-right: 16px;
 }
 
 .footer {
@@ -494,7 +499,6 @@ input {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
     align-items: center;
 }
 
