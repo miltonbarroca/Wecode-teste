@@ -5,8 +5,8 @@ window.onload = function () {
     const localidade = document.getElementById('localidade');
     const alterarCep = document.getElementById('alterar-cep');
     const cepInput = document.getElementById('cep');
-    const cidadeInput = document.getElementById('input-cidade'); // ID correto para cidade
-    const estadoSelect = document.getElementById('estado'); // ID correto para estado
+    const cidadeInput = document.getElementById('input-cidade');
+    const estadoSelect = document.getElementById('estado');
     const form = document.getElementById('cep-form');
     const savedCep = localStorage.getItem('cep');
 
@@ -29,7 +29,7 @@ window.onload = function () {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        const cep = cepInput.value.replace(/\D/g, '');
 
         if (cep.length === 8) {
             buscarCidadeEstado(cep);
@@ -52,10 +52,10 @@ window.onload = function () {
                 if (data.erro) {
                     alert('CEP não encontrado!');
                 } else {
-                    // Atualiza os campos de cidade e estado
+
                     cidadeInput.value = data.localidade || '';
                     estadoSelect.value = data.uf || '';
-                    // Salva o CEP e atualiza a faixa
+
                     localStorage.setItem('cep', cep);
                     localidade.textContent = cep;
                     faixaCep.style.display = 'flex';
@@ -69,7 +69,6 @@ window.onload = function () {
     }
 };
 
-
 // efeito header
 
 let currentIndex = 0;
@@ -82,7 +81,7 @@ function changeSlide() {
     document.querySelector('.banner-slide').style.transform = `translateX(${newTransformValue})`;
 }
 
-setInterval(changeSlide, 4000); // segundos
+setInterval(changeSlide, 4000);
 
 const header = document.querySelector('header');
 const logo = document.getElementById('logo');
@@ -100,4 +99,3 @@ window.addEventListener('scroll', () => {
         iconProduto.setAttribute('src', 'img/angulo-direito.png');
     }
 });
-
