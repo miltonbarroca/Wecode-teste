@@ -22,7 +22,7 @@
 .modal-content {
     position: relative;
     background: #fff;
-    padding: 48px 32px 0 32px;
+    padding: 48px 32px 48px 32px;
     text-align: left;
     width: 610px;
     height: 394px;
@@ -36,6 +36,7 @@
     font-size: 18px;
     margin-bottom: 48px;
     white-space: nowrap;
+    font-family: 'Open sans', sans-serif;
 }
 
 .close-button {
@@ -79,7 +80,7 @@ input {
     font-size: 14px;
     background-color: #f9f9f9;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 #input-cidade {
@@ -107,7 +108,7 @@ input::placeholder, select::placeholder {
     background-color: #B11B26;
     color: white;
     border: none;
-    padding: 12px 0;
+    padding: 12px;
     width: 100%;
     font-size: 14px;
     cursor: pointer;
@@ -508,6 +509,7 @@ header ul li a {
 #newsletter-input {
     height: 46px;
     width: 300px;
+    margin-top: 31px;
     padding: 12px 24px;
     border: 1px solid #B11B26;
     font-family: 'Open Sans', sans-serif;
