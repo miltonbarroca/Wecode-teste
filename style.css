@@ -36,7 +36,6 @@
     font-size: 18px;
     margin-bottom: 48px;
     white-space: nowrap;
-    font-family: 'Open sans', sans-serif;
 }
 
 .close-button {
@@ -65,52 +64,65 @@
     margin-bottom: 24px;
 }
 
-#label-cidade {
+#label-cidade, #label-estado {
     font-size: 14px;
 }
 
-#label-estado {
-    font-size: 14px;
-}
-
+/* Estilização do select */
 #estado {
     width: 271px;
     height: 38px;
+    color: rgb(211, 211, 211); /* Placeholder em cinza por padrão */
+    font-style: italic; /* Placeholder em itálico por padrão */
 }
 
-#estado {
-    color: rgb(211, 211, 211);
-    font-style: italic;
+/* Quando uma opção diferente do placeholder é selecionada */
+#estado:not(:focus):not([value="placeholder"]) {
+    color: #333; /* Cor normal para opções selecionadas */
+    font-style: normal; /* Sem itálico */
 }
 
-input {
+/* Placeholder estilizado especificamente */
+#estado option[value="placeholder"] {
+    color: rgb(211, 211, 211); /* Placeholder cinza */
+    font-style: italic; /* Placeholder itálico */
+}
+
+/* Esconde o placeholder quando o select está aberto */
+#estado:focus option[value="placeholder"] {
+    display: none;
+}
+
+/* Estilo para todas as outras opções */
+#estado option:not([value="placeholder"]) {
+    color: #333; /* Cor preta para opções normais */
+    font-style: normal; /* Sem itálico */
+}
+
+input, select {
     width: 100%;
     padding: 10px;
     border: 1px solid rgb(211, 211, 211);
     font-size: 14px;
     background-color: #f9f9f9;
     color: #333;
-    margin-bottom: 30px;
-}
-
-#input-cidade {
-    border: 1px solid rgb(211, 211, 211);
-    width: 271px;
-}
-
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    color: #333;
-    margin-bottom: 10px;
 }
 
 input::placeholder, select::placeholder {
     color: #aaa;
     font-style: italic;
+}
+
+input {
+    margin-bottom: 30px;
+}
+
+select {
+    margin-bottom: 10px;
+}
+
+#input-cidade {
+    width: 271px;
 }
 
 .save-button {
