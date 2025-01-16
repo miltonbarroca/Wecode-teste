@@ -73,14 +73,35 @@
     font-size: 14px;
 }
 
+/* Estilização do select */
 #estado {
     width: 271px;
     height: 38px;
+    color: rgb(211, 211, 211); /* Placeholder em cinza por padrão */
+    font-style: italic; /* Placeholder em itálico por padrão */
 }
 
-#estado {
-    color: rgb(211, 211, 211);
-    font-style: italic;
+/* Quando uma opção diferente do placeholder é selecionada */
+#estado:not(:focus):not([value="placeholder"]) {
+    color: #333; /* Cor normal para opções selecionadas */
+    font-style: normal; /* Sem itálico */
+}
+
+/* Placeholder estilizado especificamente */
+#estado option[value="placeholder"] {
+    color: rgb(211, 211, 211); /* Placeholder cinza */
+    font-style: italic; /* Placeholder itálico */
+}
+
+/* Esconde o placeholder quando o select está aberto */
+#estado:focus option[value="placeholder"] {
+    display: none;
+}
+
+/* Estilo para todas as outras opções */
+#estado option:not([value="placeholder"]) {
+    color: #333; /* Cor preta para opções normais */
+    font-style: normal; /* Sem itálico */
 }
 
 input {

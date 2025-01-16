@@ -27,6 +27,19 @@ window.onload = function () {
         }
     });
 
+    // Limitar o CEP a 8 dígitos, remover caracteres não numéricos e adicionar hífen
+    cepInput.addEventListener('input', function () {
+        let sanitizedValue = this.value.replace(/\D/g, '');
+        if (sanitizedValue.length > 8) {
+            sanitizedValue = sanitizedValue.slice(0, 8);
+        }
+        if (sanitizedValue.length > 5) {
+            this.value = sanitizedValue.slice(0, 5) + '-' + sanitizedValue.slice(5);
+        } else {
+            this.value = sanitizedValue;
+        }
+    });
+
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         const cep = cepInput.value.replace(/\D/g, '');
@@ -52,12 +65,14 @@ window.onload = function () {
                 if (data.erro) {
                     alert('CEP não encontrado!');
                 } else {
-
+                    // Atualiza os campos no modal
                     cidadeInput.value = data.localidade || '';
                     estadoSelect.value = data.uf || '';
-
+    
+                    // Salva o CEP no localStorage
                     localStorage.setItem('cep', cep);
-                    localidade.textContent = cep;
+                    localidade.textContent = `${data.localidade}, ${data.uf}`; // Exibe cidade e estado juntos no faixaCep
+    
                     faixaCep.style.display = 'flex';
                     modal.style.display = 'none';
                 }
@@ -67,35 +82,5 @@ window.onload = function () {
                 alert('Erro ao buscar informações do CEP.');
             });
     }
+    
 };
-
-// efeito header
-
-let currentIndex = 0;
-const images = document.querySelectorAll('.banner-img');
-const totalImages = images.length;
-
-function changeSlide() {
-    currentIndex = (currentIndex + 1) % totalImages;
-    const newTransformValue = -100 * currentIndex + '%';
-    document.querySelector('.banner-slide').style.transform = `translateX(${newTransformValue})`;
-}
-
-setInterval(changeSlide, 4000);
-
-const header = document.querySelector('header');
-const logo = document.getElementById('logo');
-const iconProduto = document.querySelector('.icon-produto');
-
-// Adiciona o evento de rolagem
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) { 
-        header.classList.add('scrolled');
-        logo.setAttribute('src', 'img/logo-preto.png');
-        iconProduto.setAttribute('src', 'img/angulo-direito-preto.png');
-        } else {
-        header.classList.remove('scrolled');
-        logo.setAttribute('src', 'img/logo-branco.png');
-        iconProduto.setAttribute('src', 'img/angulo-direito.png');
-    }
-});
