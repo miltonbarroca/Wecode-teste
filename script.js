@@ -102,3 +102,33 @@ window.addEventListener('scroll', () => {
         anguloImagem.setAttribute('src', 'img/angulo-direito.png');
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuItems = document.querySelectorAll(".menu-item");
+
+    menuItems.forEach((menuItem) => {
+        menuItem.addEventListener("click", (e) => {
+            // Impede o comportamento padrão do link
+            e.preventDefault();
+
+            // Fecha todos os outros submenus
+            menuItems.forEach((item) => {
+                if (item !== menuItem) {
+                    item.classList.remove("active");
+                }
+            });
+
+            // Alterna a classe 'active' no submenu clicado
+            menuItem.classList.toggle("active");
+        });
+    });
+
+    // Fecha o submenu ao clicar fora do menu
+    document.addEventListener("click", (e) => {
+        menuItems.forEach((menuItem) => {
+            if (!menuItem.contains(e.target)) {
+                menuItem.classList.remove("active");
+            }
+        });
+    });
+});

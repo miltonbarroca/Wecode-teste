@@ -7,74 +7,79 @@
     <link rel="stylesheet" href="style.css">
 </head>  
 <body>
-    <header>
-        <div id="modal" class="modal">
-            <div class="modal-content">
-              <span class="close-button">&times;</span>
-              <h2>Personalize sua experiência e encontre produtos perto de você!</h2>
-              <form id="cep-form">
-                <div>
-                    <label id="label-cep-input" for="cep">Código postal*</label>
-                    <input type="text" id="cep" placeholder="00000-000" required>
-                </div>
-                <div class="form-row">
-                  <div>
-                    <label id="label-cidade" for="cidade">Cidade</label>
-                    <input type="text" id="input-cidade" placeholder="Opcional">
-                  </div>
-                  <div>
-                    <label id="label-estado" for="estado">Estado</label>
-                    <select id="estado" value="placeholder">
-                        <option value="placeholder" selected>Opcional</option>
-                        <option value="AC">AC</option>
-                        <option value="AL">AL</option>
-                        <option value="AM">AM</option>
-                        <option value="AP">AP</option>
-                        <option value="BA">BA</option>
-                        <option value="CE">CE</option>
-                        <option value="DF">DF</option>
-                        <option value="ES">ES</option>
-                        <option value="GO">GO</option>
-                        <option value="MA">MA</option>
-                        <option value="MG">MG</option>
-                        <option value="MS">MS</option>
-                        <option value="MT">MT</option>
-                        <option value="PA">PA</option>
-                        <option value="PB">PB</option>
-                        <option value="PE">PE</option>
-                        <option value="PI">PI</option>
-                        <option value="PR">PR</option>
-                        <option value="RJ">RJ</option>
-                        <option value="RN">RN</option>
-                        <option value="RO">RO</option>
-                        <option value="RR">RR</option>
-                        <option value="RS">RS</option>
-                        <option value="SC">SC</option>
-                        <option value="SE">SE</option>
-                        <option value="SP">SP</option>
-                        <option value="TO">TO</option>
-                    </select>
-                                   
-                  </div>
-                </div>
-                
-                <button type="submit" class="save-button">Salvar endereço</button>
-              </form>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Personalize sua experiência e encontre produtos perto de você!</h2>
+          <form id="cep-form">
+            <div>
+                <label id="label-cep-input" for="cep">Código postal*</label>
+                <input type="text" id="cep" placeholder="00000-000" required>
             </div>
-          </div>
-          
-          <div class="faixa-cep" id="faixa-cep">
+            <div class="form-row">
+              <div>
+                <label id="label-cidade" for="cidade">Cidade</label>
+                <input type="text" id="input-cidade" placeholder="Opcional">
+              </div>
+              <div>
+                <label id="label-estado" for="estado">Estado</label>
+                <select id="estado" value="placeholder">
+                    <option value="placeholder" selected>Opcional</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AM">AM</option>
+                    <option value="AP">AP</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MG">MG</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="PR">PR</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="RS">RS</option>
+                    <option value="SC">SC</option>
+                    <option value="SE">SE</option>
+                    <option value="SP">SP</option>
+                    <option value="TO">TO</option>
+                </select>
+                               
+              </div>
+            </div>
+            
+            <button type="submit" class="save-button">Salvar endereço</button>
+          </form>
+        </div>
+    </div>
+    <header>
+        <div class="faixa-cep" id="faixa-cep">
             Você está em: <span id="localidade">()</span> 
             <a href="#" id="alterar-cep">Alterar</a> 
-          </div>          
-                
+        </div>          
+    
         <div class="logo">
             <img id="logo" src="img/logo-branco.png" alt="Logo Bebecê">
-            <ul>
-                <li>
+            <ul class="menu">
+                <li class="menu-item">
                     <a href="Produtos">
                         Produtos
                         <img src="img/angulo-direito.png" alt="Ícone" class="icon-produto">
+                        <ul class="submenu">
+                            <li><a href="#">Sapatos</a></li>
+                            <li><a href="#">Scarpins</a></li>
+                            <li><a href="#">Sapatilhas</a></li>
+                            <li><a href="#">Sandálias</a></li>
+                        </ul>
                     </a>
                 </li>
                 <li><a href="Lançamentos">Lançamentos</a></li>
@@ -86,8 +91,7 @@
                 <div class="icone-carrinho"></div>
             </div>
         </div>
-        
-    </header>
+    </header>  
     
     <!-- Carrossel -->
     <div class="banner-container">
