@@ -84,3 +84,21 @@ window.onload = function () {
     }
     
 };
+// Seleciona o header, a imagem do logo e a imagem do ângulo
+const header = document.querySelector('header');
+const logo = document.querySelector('#logo'); // Certifique-se de que o ID está correto
+const anguloImagem = document.querySelector('.icon-produto'); // Certifique-se de que o ID da imagem do ângulo está correto
+
+// Adiciona o evento de scroll
+window.addEventListener('scroll', () => {
+    // Verifica se a página foi rolada
+    if (window.scrollY > 50) { // Ajuste 50 conforme a altura que deseja
+        header.classList.add('scrolled');
+        logo.setAttribute('src', 'img/logo-preto.png'); // Altera para logo preto
+        anguloImagem.setAttribute('src', 'img/angulo-direito-preto.png'); // Altera para o ângulo direito
+    } else {
+        header.classList.remove('scrolled');
+        logo.setAttribute('src', 'img/logo-branco.png'); // Retorna para logo branco
+        anguloImagem.setAttribute('src', 'img/angulo-direito.png');
+    }
+});

@@ -36,7 +36,6 @@
     font-size: 18px;
     margin-bottom: 48px;
     white-space: nowrap;
-    font-family: 'Open sans', sans-serif;
 }
 
 .close-button {
@@ -65,11 +64,7 @@
     margin-bottom: 24px;
 }
 
-#label-cidade {
-    font-size: 14px;
-}
-
-#label-estado {
+#label-cidade, #label-estado {
     font-size: 14px;
 }
 
@@ -104,34 +99,30 @@
     font-style: normal; /* Sem itálico */
 }
 
-input {
+input, select {
     width: 100%;
     padding: 10px;
     border: 1px solid rgb(211, 211, 211);
     font-size: 14px;
     background-color: #f9f9f9;
     color: #333;
-    margin-bottom: 30px;
-}
-
-#input-cidade {
-    border: 1px solid rgb(211, 211, 211);
-    width: 271px;
-}
-
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    color: #333;
-    margin-bottom: 10px;
 }
 
 input::placeholder, select::placeholder {
     color: #aaa;
     font-style: italic;
+}
+
+input {
+    margin-bottom: 30px;
+}
+
+select {
+    margin-bottom: 10px;
+}
+
+#input-cidade {
+    width: 271px;
 }
 
 .save-button {
