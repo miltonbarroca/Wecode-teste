@@ -144,20 +144,34 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
     const menu = document.getElementById("menu-produtos");
     const linkProdutos = document.getElementById("link-produtos");
+    const header = document.querySelector("header"); // Certifique-se de que o `header` existe no HTML
+    const logo = document.getElementById("bebece-logo");
+    const anguloImagem = document.querySelector(".icon-produto");
     const links = document.querySelectorAll(".menu-links a");
     const images = document.querySelectorAll(".product-image");
 
+    // Função para alternar o estilo do header
+    function changeHeaderToWhite() {
+        header.classList.add("scrolled");
+        logo.setAttribute("src", "img/logo-preto.png");
+        anguloImagem.setAttribute("src", "img/angulo-direito-preto.png");
+    }
+
+    // Alterna o menu ao clicar no link Produtos
     linkProdutos.addEventListener("click", function (event) {
         event.preventDefault();
         menu.style.display = menu.style.display === "block" ? "none" : "block";
+        changeHeaderToWhite(); // Chama a função para alterar o header
     });
 
+    // Oculta o menu ao clicar fora dele
     document.addEventListener("click", function (event) {
         if (!menu.contains(event.target) && event.target !== linkProdutos) {
             menu.style.display = "none";
         }
     });
 
+    // Exibe a imagem correspondente ao item do menu
     links.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
@@ -174,5 +188,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
 
+    // Evento de scroll para modificar o header dinamicamente
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+            logo.setAttribute("src", "img/logo-preto.png");
+            anguloImagem.setAttribute("src", "img/angulo-direito-preto.png");
+        } else {
+            header.classList.remove("scrolled");
+            logo.setAttribute("src", "img/logo-branco.png");
+            anguloImagem.setAttribute("src", "img/angulo-direito.png");
+        }
+    });
+});
