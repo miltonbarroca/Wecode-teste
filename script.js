@@ -27,7 +27,6 @@ window.onload = function () {
         }
     });
 
-    // Limitar o CEP a 8 dígitos, remover caracteres não numéricos e adicionar hífen
     cepInput.addEventListener('input', function () {
         let sanitizedValue = this.value.replace(/\D/g, '');
         if (sanitizedValue.length > 8) {
@@ -65,13 +64,12 @@ window.onload = function () {
                 if (data.erro) {
                     alert('CEP não encontrado!');
                 } else {
-                    // Atualiza os campos no modal
+
                     cidadeInput.value = data.localidade || '';
                     estadoSelect.value = data.uf || '';
-    
-                    // Salva o CEP no localStorage
+
                     localStorage.setItem('cep', cep);
-                    localidade.textContent = `${data.localidade}, ${data.uf}`; // Exibe cidade e estado juntos no faixaCep
+                    localidade.textContent = `${data.localidade}, ${data.uf}`;
     
                     faixaCep.style.display = 'flex';
                     modal.style.display = 'none';
@@ -84,21 +82,21 @@ window.onload = function () {
     }
     
 };
-// Seleciona o header, a imagem do logo e a imagem do ângulo
+
 const header = document.querySelector('header');
-const logo = document.querySelector('#bebece-logo'); // Certifique-se de que o ID está correto
-const anguloImagem = document.querySelector('.icon-produto'); // Certifique-se de que o ID da imagem do ângulo está correto
+const logo = document.querySelector('#bebece-logo');
+const anguloImagem = document.querySelector('.icon-produto');
 
 // Adiciona o evento de scroll
 window.addEventListener('scroll', () => {
-    // Verifica se a página foi rolada
-    if (window.scrollY > 50) { // Ajuste 50 conforme a altura que deseja
+
+    if (window.scrollY > 50) {
         header.classList.add('scrolled');
-        logo.setAttribute('src', 'img/logo-preto.png'); // Altera para logo preto
-        anguloImagem.setAttribute('src', 'img/angulo-direito-preto.png'); // Altera para o ângulo direito
+        logo.setAttribute('src', 'img/logo-preto.png');
+        anguloImagem.setAttribute('src', 'img/angulo-direito-preto.png');
     } else {
         header.classList.remove('scrolled');
-        logo.setAttribute('src', 'img/logo-branco.png'); // Retorna para logo branco
+        logo.setAttribute('src', 'img/logo-branco.png');
         anguloImagem.setAttribute('src', 'img/angulo-direito.png');
     }
 });
@@ -108,7 +106,7 @@ const slideContainer = document.querySelector('.banner-slide');
 let index = 0;
 
 function changeSlide() {
-    index = (index + 1) % 2; // Alterna entre 0 e 1 (duas imagens)
+    index = (index + 1) % 2;
     slideContainer.style.transform = `translateX(-${index * 100}%)`;
 }
 
@@ -121,25 +119,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
     menuItems.forEach((menuItem) => {
         menuItem.addEventListener("click", (e) => {
-            e.preventDefault(); // Evita o comportamento padrão
-            e.stopPropagation(); // Impede o clique de se propagar
+            e.preventDefault();
+            e.stopPropagation();
 
-            // Fecha todos os outros submenus
             menuItems.forEach((item) => {
                 if (item !== menuItem) {
                     item.classList.remove("active");
                 }
             });
 
-            // Alterna a classe 'active' no menu clicado
             menuItem.classList.toggle("active");
         });
     });
 
-    // Fecha o submenu ao clicar fora do menu
     document.addEventListener("click", () => {
         menuItems.forEach((menuItem) => {
             menuItem.classList.remove("active");
         });
     });
 });
+
+// menu area produtos
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menu = document.getElementById("menu-produtos");
+    const linkProdutos = document.getElementById("link-produtos");
+    const links = document.querySelectorAll(".menu-links a");
+    const images = document.querySelectorAll(".product-image");
+
+    linkProdutos.addEventListener("click", function (event) {
+        event.preventDefault();
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target) && event.target !== linkProdutos) {
+            menu.style.display = "none";
+        }
+    });
+
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const selectedImage = link.getAttribute("data-image");
+
+            images.forEach(image => {
+                image.style.display = "none";
+            });
+
+            const imageToShow = document.getElementById(selectedImage);
+            if (imageToShow) {
+                imageToShow.style.display = "block";
+            }
+        });
+    });
+});
+

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open sans', sans-serif;
 }
 
 /* Estilização do modal */
@@ -27,7 +28,6 @@
     width: 610px;
     height: 394px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Open sans', sans-serif;
     font-size: 14px;
     color: #000000;
 }
@@ -190,7 +190,6 @@ header ul li a {
     align-items: center;
     color: white;
     font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
     display: none;
 }
 
@@ -229,7 +228,6 @@ header ul li a {
 
 .logo ul li {
     margin-right: 40px; 
-    font-family: 'Open Sans', sans-serif;
     position: relative; 
 }
 
@@ -296,26 +294,26 @@ header ul li a {
 .menu-produtos {
     width: 100%;
     height: 370px;
-    padding-top: 24px;
     background-color: white;
-    position: flex;
+    position: fixed;
     top: 100px;
     left: 0;
+    display: none;
 }
 
+/* Estiliza o menu-produtos de forma específica */
 .menu-produtos .menu-links {
     list-style: none;
-    margin: 0;
+    margin-top: 24px;
     padding: 0;
-    display: flex; /* Usando flexbox para organizar os itens */
-    flex-direction: column; /* Organiza os links em coluna */
-    gap: 16px; /* Espaçamento de 16px entre os links */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     position: relative;
-    left: 264px; /* Distância da esquerda */
+    left: 264px;
 }
 
 .menu-produtos .menu-links li {
-    font-family: 'Open sans', sans-serif;
     font-size: 14px;
 }
 
@@ -327,6 +325,25 @@ header ul li a {
 
 .menu-produtos .menu-links li a:hover {
     text-decoration: underline;
+}
+
+/* área onde as imagens serão exibidas */
+.image-display {
+    position: absolute;
+    left: 390px;
+    top: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Estilo para as imagens */
+.product-image {
+    margin-top: 24px;
+    width: 315px;
+    height: 315px;
+    margin-left: 20px;
+    display: none;
 }
 
 /* Estilos para o carrossel */
@@ -367,7 +384,6 @@ header ul li a {
     background-color: transparent;
     color: white;
     font-size: 14px;
-    font-family: 'open sans', sans-serif;
     white-space: nowrap;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
@@ -382,7 +398,6 @@ header ul li a {
 /* Categorias */
 
 .categorias h1 {
-    font-family: 'open sans', sans-serif;
     font-size: 28px;
     margin-left: 80px;
     margin-top: 32px;
@@ -409,7 +424,6 @@ header ul li a {
 
 .card p {
     margin-top: 16px;
-    font-family: 'open sans', sans-serif;
     font-size: 16px;
     color: #000000;
 }
@@ -457,7 +471,6 @@ header ul li a {
 }
 
 .lancamentos h1 {
-    font-family: 'open sans', sans-serif;
     font-size: 28px;
     margin-left: 80px;
     margin-top: 32px;
@@ -481,13 +494,11 @@ header ul li a {
 }
 
 .conheca-mais h1 {
-    font-family: 'open sans', sans-serif;
     font-size: 28px;
     margin-bottom: 5px;
 }
 
 .conheca-mais p {
-    font-family: 'open sans', sans-serif;
     font-style: italic;
     font-size: 18px;
     margin-bottom: 32px;
@@ -519,14 +530,12 @@ header ul li a {
 
 .card-blog h2 {
     margin-top: 10px;
-    font-family: 'Open Sans', sans-serif;
     font-size: 28px;
     margin-bottom: 10px;
 }
 
 .card-blog p {
     text-align: left;
-    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     margin: 0;
     margin-bottom: 16px;
@@ -558,7 +567,6 @@ header ul li a {
 }
 
 .newsletter h1 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     margin: 0;
     margin-right: 48px;
@@ -570,7 +578,6 @@ header ul li a {
     margin-top: 31px;
     padding: 12px 24px;
     border: 1px solid #B11B26;
-    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
 }
 
@@ -580,7 +587,6 @@ header ul li a {
     padding: 12px 24px;
     background-color: #B11B26;
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     border: none;
     cursor: pointer;
@@ -595,7 +601,6 @@ header ul li a {
     background-color: #B11B26;
     color: white;
     padding: 40px 0px;
-    font-family: Arial, sans-serif;
     height: 424px;
 }
 

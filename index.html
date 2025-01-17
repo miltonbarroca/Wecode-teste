@@ -71,7 +71,7 @@
             <img id="bebece-logo" src="img/logo-branco.png" alt="Logo Bebecê">
             <ul class="menu">
                 <li class="menu-item">
-                    <a href="Produtos">
+                    <a href="#" id="link-produtos">
                         Produtos
                         <img src="img/angulo-direito.png" alt="Ícone" class="icon-produto">
                     </a>
@@ -85,15 +85,22 @@
                 <div class="icone-carrinho"></div>
             </div>
         </div>
-
-        <div class="menu-produtos">
+        
+        <div class="menu-produtos" id="menu-produtos" style="display: none;">
             <ul class="menu-links">
-                <li><a href="#">Botas</a></li>
-                <li><a href="#">Scarpins</a></li>
-                <li><a href="#">Sapatilhas</a></li>
-                <li><a href="#">Sandalias</a></li>
+                <li><a href="#" data-image="sapatos">Sapatos</a></li>
+                <li><a href="#" data-image="scarpins">Scarpins</a></li>
+                <li><a href="#" data-image="sandalias">Sandálias</a></li>
+                <li><a href="#" data-image="botas">Botas</a></li>
             </ul>
-        </div>
+        
+            <div class="image-display">
+                <img id="sapatos" class="product-image" src="img/sapatos.png" alt="Sapatos" style="display: none;">
+                <img id="scarpins" class="product-image" src="img/banner-scarpins.png" alt="Scarpins" style="display: none;">
+                <img id="sandalias" class="product-image" src="img/banner-sandalias.png" alt="Sandálias" style="display: none;">
+                <img id="botas" class="product-image" src="img/banner-botas.png" alt="Botas" style="display: none;">
+            </div>
+        </div>     
 
     </header>  
     
