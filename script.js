@@ -103,13 +103,26 @@ window.addEventListener('scroll', () => {
     }
 });
 
+//carrossel
+const slideContainer = document.querySelector('.banner-slide');
+let index = 0;
+
+function changeSlide() {
+    index = (index + 1) % 2; // Alterna entre 0 e 1 (duas imagens)
+    slideContainer.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Altera a imagem a cada 5 segundos
+setInterval(changeSlide, 3000);
+
+//menu de itens
 document.addEventListener("DOMContentLoaded", () => {
     const menuItems = document.querySelectorAll(".menu-item");
 
     menuItems.forEach((menuItem) => {
         menuItem.addEventListener("click", (e) => {
-            // Impede o comportamento padrão do link
-            e.preventDefault();
+            e.preventDefault(); // Evita o comportamento padrão
+            e.stopPropagation(); // Impede o clique de se propagar
 
             // Fecha todos os outros submenus
             menuItems.forEach((item) => {
@@ -118,17 +131,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Alterna a classe 'active' no submenu clicado
+            // Alterna a classe 'active' no menu clicado
             menuItem.classList.toggle("active");
         });
     });
 
     // Fecha o submenu ao clicar fora do menu
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", () => {
         menuItems.forEach((menuItem) => {
-            if (!menuItem.contains(e.target)) {
-                menuItem.classList.remove("active");
-            }
+            menuItem.classList.remove("active");
         });
     });
 });

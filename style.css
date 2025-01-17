@@ -250,52 +250,6 @@ header ul li a {
     transition: width 0.9s ease;
 }
 
-/* Estilo para os itens principais do menu */
-.menu-item > a {
-    display: flex;
-    align-items: center;
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-/* Submenu: redefinindo os estilos */
-.menu-item > .submenu > li {
-    margin: 0;
-    padding: 0;
-    list-style: none; /* Remover qualquer estilo de lista */
-}
-
-.menu-item > .submenu > li > a {
-    color: black;
-    text-decoration: none;
-    padding: 5px 10px;
-    font-size: 14px; /* Diferente do menu principal */
-    font-weight: normal; /* Remover o peso do menu principal */
-    display: block;
-    transition: background-color 0.3s;
-}
-
-/* Hover para o submenu */
-.menu-item > .submenu > li > a:hover {
-    background-color: #f0f0f0;
-}
-
-/* Garantir que o submenu não herde estilos do menu principal */
-.menu-item > .submenu {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding: 10px 0;
-    z-index: 10;
-    width: 150px; /* Ajustar conforme necessário */
-}
-
 /* Hover na linha */
 .logo ul li a:hover::after {
     width: 90%;
