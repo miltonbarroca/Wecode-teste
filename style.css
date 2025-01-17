@@ -292,6 +292,41 @@ header ul li a {
     height: 20px !important;
 }
 
+/* Menu Produtos */
+.menu-produtos {
+    width: 100%;
+    height: 370px;
+    padding-top: 24px;
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    left: 0;
+}
+
+.menu-produtos .menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    left: 264px;
+}
+
+.menu-produtos .menu-links li {
+    font-family: 'Open sans', sans-serif;
+    font-size: 14px;
+}
+
+.menu-produtos .menu-links li a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.menu-produtos .menu-links li a:hover {
+    text-decoration: underline;
+}
+
 /* Estilos para o carrossel */
 .banner-container {
     overflow: hidden;

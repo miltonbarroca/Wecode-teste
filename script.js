@@ -86,7 +86,7 @@ window.onload = function () {
 };
 // Seleciona o header, a imagem do logo e a imagem do ângulo
 const header = document.querySelector('header');
-const logo = document.querySelector('#logo'); // Certifique-se de que o ID está correto
+const logo = document.querySelector('#bebece-logo'); // Certifique-se de que o ID está correto
 const anguloImagem = document.querySelector('.icon-produto'); // Certifique-se de que o ID da imagem do ângulo está correto
 
 // Adiciona o evento de scroll
@@ -112,8 +112,8 @@ function changeSlide() {
     slideContainer.style.transform = `translateX(-${index * 100}%)`;
 }
 
-// Altera a imagem a cada 5 segundos
-setInterval(changeSlide, 3000);
+
+setInterval(changeSlide, 5000);
 
 //menu de itens
 document.addEventListener("DOMContentLoaded", () => {
