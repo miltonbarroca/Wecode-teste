@@ -298,7 +298,7 @@ header ul li a {
     height: 370px;
     padding-top: 24px;
     background-color: white;
-    position: fixed;
+    position: flex;
     top: 100px;
     left: 0;
 }
@@ -307,9 +307,11 @@ header ul li a {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: block;
+    display: flex; /* Usando flexbox para organizar os itens */
+    flex-direction: column; /* Organiza os links em coluna */
+    gap: 16px; /* Espaçamento de 16px entre os links */
     position: relative;
-    left: 264px;
+    left: 264px; /* Distância da esquerda */
 }
 
 .menu-produtos .menu-links li {
