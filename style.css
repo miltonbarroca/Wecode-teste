@@ -72,31 +72,27 @@
 #estado {
     width: 271px;
     height: 38px;
-    color: rgb(211, 211, 211); /* Placeholder em cinza por padrão */
-    font-style: italic; /* Placeholder em itálico por padrão */
+    color: rgb(211, 211, 211);
+    font-style: italic;
 }
 
-/* Quando uma opção diferente do placeholder é selecionada */
 #estado:not(:focus):not([value="placeholder"]) {
-    color: #333; /* Cor normal para opções selecionadas */
+    color: #333;
     font-style: normal;
 }
 
-/* Placeholder estilizado especificamente */
 #estado option[value="placeholder"] {
-    color: rgb(211, 211, 211); /* Placeholder cinza */
-    font-style: italic; /* Placeholder itálico */
+    color: rgb(211, 211, 211);
+    font-style: italic; 
 }
 
-/* Esconde o placeholder quando o select está aberto */
 #estado:focus option[value="placeholder"] {
     display: none;
 }
 
-/* Estilo para todas as outras opções */
 #estado option:not([value="placeholder"]) {
-    color: #333; /* Cor preta para opções normais */
-    font-style: normal; /* Sem itálico */
+    color: #333;
+    font-style: normal;
 }
 
 input, select {
@@ -303,7 +299,6 @@ header ul li a {
     display: none;
 }
 
-/* Estiliza o menu-produtos de forma específica */
 .menu-produtos .menu-links {
     list-style: none;
     margin-top: 24px;
@@ -496,9 +491,9 @@ header ul li a {
 
 .btn-carrinho {
     position: absolute;
-    bottom: 10px; /* Distância da parte inferior do card */
-    right: 10px; /* Distância da lateral direita do card */
-    display: flex; /* Caso queira centralizar o conteúdo dentro */
+    bottom: 10px;
+    right: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -507,11 +502,11 @@ header ul li a {
     width: 32px;
     height: auto;
     cursor: pointer;
-    transition: transform 0.2s ease; /* Efeito ao passar o mouse */
+    transition: transform 0.2s ease; 
 }
 
 .btn-carrinho img:hover {
-    transform: scale(1.1); /* Aumenta levemente no hover */
+    transform: scale(1.1);
 }
 
 /* Conheça mais */
@@ -578,9 +573,6 @@ header ul li a {
 .card-blog a:hover {
     text-decoration: underline;
 }
-
-/*carrinho*/
-
 
 /* newsletter */
 
@@ -688,7 +680,6 @@ header ul li a {
 }
 
 /* Estilos do modal */
-/* Estilos do modal */
 #modalCarrinho {
     display: none;
     position: fixed;
@@ -705,9 +696,8 @@ header ul li a {
 #modalCarrinho .modal-container {
     display: flex;
     background-color: #fff;
-    border-radius: 8px;
-    width: 903px; /* Tamanho fixo */
-    height: 433px; /* Tamanho fixo */
+    width: 903px;
+    height: 433px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
@@ -744,17 +734,16 @@ header ul li a {
 #modalCarrinho .tamanhos {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 #modalCarrinho .tamanho-btn {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 46px;
     font-size: 14px;
     cursor: pointer;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
-    border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
@@ -770,7 +759,6 @@ header ul li a {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
