@@ -219,55 +219,47 @@ function fecharModal() {
 function selecionarTamanho(btn) {
     tamanhoEscolhido = btn.getAttribute("data-size");
     console.log("Tamanho escolhido: " + tamanhoEscolhido);
-    // Destacar o botão selecionado
     tamanhoBtns.forEach(function(b) { b.style.backgroundColor = "#f0f0f0"; });
-    btn.style.backgroundColor = "#ddd"; // Destaque do botão selecionado
+    btn.style.backgroundColor = "#ddd";
 }
 
 // Obter o modal e os botões
 var modal = document.getElementById("modalCarrinho");
 var btnCarrinho = document.querySelectorAll(".btn-carrinho");
 var span = document.getElementsByClassName("close-carrinho")[0];
-var tamanhoEscolhido = null; // Variável para armazenar o tamanho escolhido
+var tamanhoEscolhido = null;
 var tamanhoBtns = document.querySelectorAll(".tamanho-btn");
 
-// Quando clicar no botão de adicionar ao carrinho, abrir o modal
 btnCarrinho.forEach(function(btn) {
     btn.onclick = function(event) {
-        event.preventDefault(); // Impede o link de redirecionar
+        event.preventDefault();
 
-        // Obtém as informações do produto (nome e imagem)
         var produtoNome = this.getAttribute("data-product-name");
         var produtoImagem = this.getAttribute("data-product-image");
 
-        // Abre o modal com as informações do produto
         abrirModalProduto(produtoNome, produtoImagem);
     };
 });
 
-// Quando clicar no botão de fechar, fechar o modal
 span.onclick = fecharModal;
 
-// Fechar o modal quando clicar fora da caixa de conteúdo
 window.onclick = function(event) {
     if (event.target == modal) {
         fecharModal();
     }
 }
 
-// Selecionar tamanho ao clicar no botão de tamanho
 tamanhoBtns.forEach(function(btn) {
     btn.onclick = function() {
         selecionarTamanho(this);
     };
 });
 
-// Adicionar ao carrinho
 document.getElementById("adicionarCarrinho").onclick = function() {
     if (tamanhoEscolhido) {
         console.log("Tamanho " + tamanhoEscolhido + " adicionado ao carrinho.");
-        // Lógica para adicionar ao carrinho aqui
-        fecharModal(); // Fechar o modal após adicionar
+
+        fecharModal();
     } else {
         alert("Por favor, escolha um tamanho.");
     }
