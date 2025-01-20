@@ -203,43 +203,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Obter o modal e o botão de fechar
+/// Função para abrir o modal e exibir informações do produto
+function abrirModalProduto(produtoNome, produtoImagem) {
+    document.getElementById("modalProdutoNome").textContent = "Escolha o tamanho do " + produtoNome;
+    document.getElementById("modalProdutoImagem").src = produtoImagem;
+    modal.style.display = "block";
+}
+
+// Função para fechar o modal
+function fecharModal() {
+    modal.style.display = "none";
+}
+
+// Função para selecionar o tamanho e destacar o botão
+function selecionarTamanho(btn) {
+    tamanhoEscolhido = btn.getAttribute("data-size");
+    console.log("Tamanho escolhido: " + tamanhoEscolhido);
+    // Destacar o botão selecionado
+    tamanhoBtns.forEach(function(b) { b.style.backgroundColor = "#f0f0f0"; });
+    btn.style.backgroundColor = "#ddd"; // Destaque do botão selecionado
+}
+
+// Obter o modal e os botões
 var modal = document.getElementById("modalCarrinho");
 var btnCarrinho = document.querySelectorAll(".btn-carrinho");
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close-carrinho")[0];
 var tamanhoEscolhido = null; // Variável para armazenar o tamanho escolhido
+var tamanhoBtns = document.querySelectorAll(".tamanho-btn");
 
 // Quando clicar no botão de adicionar ao carrinho, abrir o modal
 btnCarrinho.forEach(function(btn) {
     btn.onclick = function(event) {
         event.preventDefault(); // Impede o link de redirecionar
-        var produto = this.getAttribute("data-product");
-        document.getElementById("modalCarrinho").querySelector("h2").textContent = "Escolha o tamanho do " + produto;
-        modal.style.display = "block";
+
+        // Obtém as informações do produto (nome e imagem)
+        var produtoNome = this.getAttribute("data-product-name");
+        var produtoImagem = this.getAttribute("data-product-image");
+
+        // Abre o modal com as informações do produto
+        abrirModalProduto(produtoNome, produtoImagem);
     };
 });
 
 // Quando clicar no botão de fechar, fechar o modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+span.onclick = fecharModal;
 
 // Fechar o modal quando clicar fora da caixa de conteúdo
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        fecharModal();
     }
 }
 
 // Selecionar tamanho ao clicar no botão de tamanho
-var tamanhoBtns = document.querySelectorAll(".tamanho-btn");
 tamanhoBtns.forEach(function(btn) {
     btn.onclick = function() {
-        tamanhoEscolhido = this.getAttribute("data-size");
-        console.log("Tamanho escolhido: " + tamanhoEscolhido);
-        // Destacar o botão selecionado
-        tamanhoBtns.forEach(function(b) { b.style.backgroundColor = "#f0f0f0"; });
-        this.style.backgroundColor = "#ddd"; // Destaque do botão selecionado
+        selecionarTamanho(this);
     };
 });
 
@@ -248,7 +267,7 @@ document.getElementById("adicionarCarrinho").onclick = function() {
     if (tamanhoEscolhido) {
         console.log("Tamanho " + tamanhoEscolhido + " adicionado ao carrinho.");
         // Lógica para adicionar ao carrinho aqui
-        modal.style.display = "none"; // Fechar o modal após adicionar
+        fecharModal(); // Fechar o modal após adicionar
     } else {
         alert("Por favor, escolha um tamanho.");
     }
