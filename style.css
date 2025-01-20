@@ -241,11 +241,13 @@ header ul li a {
     content: '';
     position: absolute;
     left: 0;
+    bottom: -5px;
     width: 0;
-    height: 1px; /* Espessura */
+    height: 1px;
     background-color: #000000;
     transition: width 0.9s ease;
 }
+
 
 /* Hover na linha */
 .logo ul li a:hover::after {
@@ -453,7 +455,6 @@ header ul li a {
 }
 
 /* lançamentos */
-
 .lancamentos {
     background-color: #ffffff;
     padding-top: 15px;
@@ -469,6 +470,10 @@ header ul li a {
     justify-content: flex-start;
 }
 
+.lancamentos-container p {
+    font-size: 16px;
+}
+
 .lancamentos h1 {
     font-size: 28px;
     margin-left: 80px;
@@ -479,11 +484,32 @@ header ul li a {
     width: 330px;
     padding: 16px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .card-lancamento img {
     width: 100%;
     height: auto;
+}
+
+.btn-carrinho {
+    position: absolute;
+    bottom: 10px; /* Distância da parte inferior do card */
+    right: 10px; /* Distância da lateral direita do card */
+    display: flex; /* Caso queira centralizar o conteúdo dentro */
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-carrinho img {
+    width: 32px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Efeito ao passar o mouse */
+}
+
+.btn-carrinho img:hover {
+    transform: scale(1.1); /* Aumenta levemente no hover */
 }
 
 /* Conheça mais */
@@ -551,6 +577,9 @@ header ul li a {
     text-decoration: underline;
 }
 
+/*carrinho*/
+
+
 /* newsletter */
 
 .newsletter {
@@ -595,7 +624,7 @@ header ul li a {
 
 .footer {
     display: flex;
-    justify-content: space-between; /* Logo na esquerda, elementos restantes centralizados */
+    justify-content: space-between;
     align-items: center;
     background-color: #B11B26;
     color: white;
@@ -605,7 +634,7 @@ header ul li a {
 
 #logo-footer {
     color: #FFE9DC;
-    margin-right: 20px; /* Espaçamento para separar do restante */
+    margin-right: 20px;
 }
 
 .footer-container {

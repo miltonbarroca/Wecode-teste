@@ -138,26 +138,51 @@
         <img class="banner-grande" src="img/banner-grande.png" alt="Banner Grande">
         <img class="banner-pequeno" src="img/banner-pequeno.png" alt="Banner Pequeno">
     </div>   
-
-    <div class="lancamentos">
-        <h1>Lançamentos</h1>
-        <div class="lancamentos-container">
-            <div class="card-lancamento">
-                <img src="img/Card de Produto - 1.png" alt="Card 1">
-            </div>
-            <div class="card-lancamento">
-                <img src="img/Card de Produto - 2.png" alt="Card 2">
-            </div>
-            <div class="card-lancamento">
-                <img src="img/Card de Produto - 3.png" alt="Card 3">
-            </div>
-            <div class="card-lancamento">
-                <img src="img/Card de Produto - 4.png" alt="Card 4">
-            </div>
-            <div class="card-lancamento">
-                <img src="img/Card de Produto - 5.png" alt="Card 5">
-            </div>
+    <div class="lancamentos-container">
+        <div class="card-lancamento">
+            <img src="img/Card de Produto - 1.png" alt="Card 1">
+            <p>Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado</p>
+            <p>R$ 179,90</p>
+            <a href="#" class="btn-carrinho">
+                <img src="img/adicionaraocarrinho.png" alt="Adicionar ao Carrinho">
+            </a>
         </div>
+        <div class="card-lancamento">
+            <img src="img/Card de Produto - 2.png" alt="Card 2">
+            <p>Coturno Feminino Bebecê Tratorado Detalhe Tachas</p>
+            <p style="font-size: 12px;"><s style="color: gray;">R$ 349,90</s></p><p>R$ 315</p>
+            <a href="#" class="btn-carrinho">
+                <img src="img/adicionaraocarrinho.png" alt="Adicionar ao Carrinho">
+            </a>
+        </div>
+        <div class="card-lancamento">
+            <img src="img/Card de Produto - 3.png" alt="Card 3">
+            <p>Scarpin Bebecê Salto Alto Taça Com Fivela</p>
+            <p>R$ 159,90</p>
+            <a href="#" class="btn-carrinho">
+                <img src="img/adicionaraocarrinho.png" alt="Adicionar ao Carrinho">
+            </a>
+        </div>
+        <div class="card-lancamento">
+            <img src="img/Card de Produto - 4.png" alt="Card 4">
+            <p>Slingback Branco Tiras Bico Fino Couro</p>
+            <p>R$ 379,90</p>
+            <a href="#" class="btn-carrinho">
+                <img src="img/adicionaraocarrinho.png" alt="Adicionar ao Carrinho">
+            </a>
+        </div>
+        <div class="card-lancamento">
+            <img src="img/Card de Produto - 5.png" alt="Card 5">
+            <p>Sandália Braco Blanc Tratorada...</p>
+            <p style="font-size: 12px;"><s style="color: gray;">R$ 459,90</s></p>
+            <p>R$ 319,89</p>
+            <a href="#" class="btn-carrinho">
+                <img src="img/adicionaraocarrinho.png" alt="Adicionar ao Carrinho">
+            </a>
+        </div>
+    </div>
+    
+          
     </div>    
 
     <div class="conheca-mais">
@@ -185,6 +210,21 @@
                     Esta mule é perfeita para você. ✨</p>
                 <a href="https://www.exemplo.com" class="saiba-mais">Saiba mais!</a>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal para selecionar tamanho -->
+    <div id="modal-tamanho" class="modal hidden">
+        <div class="modal-content">
+            <h2>Selecione o tamanho do calçado</h2>
+            <div class="tamanhos">
+                <button class="tamanho" data-tamanho="38">38</button>
+                <button class="tamanho" data-tamanho="39">39</button>
+                <button class="tamanho" data-tamanho="40">40</button>
+                <button class="tamanho" data-tamanho="41">41</button>
+            </div>
+            <button id="adicionar-carrinho">Adicionar ao Carrinho</button>
+            <button id="fechar-modal">Cancelar</button>
         </div>
     </div>
 
