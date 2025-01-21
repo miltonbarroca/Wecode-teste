@@ -787,3 +787,81 @@ header ul li a {
 .minicart-main-container .total a:hover {
     text-decoration: underline;
 }
+
+/* Container do Modal */
+#modalCarrinho {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;  
+    width: 903px;
+    height: 433px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.modal-body{
+    background-color: white;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-image {
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.modal-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal-details {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tamanhos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tamanho-btn {
+    width: 44px;
+    height: 46px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.tamanho-btn:hover {
+    background-color: #ddd;
+}
+
+#adicionarCarrinho {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #B11B26;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#adicionarCarrinho:hover {
+    background-color: #9a1722;
+}
