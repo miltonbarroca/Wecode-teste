@@ -100,6 +100,9 @@ window.addEventListener('scroll', () => {
         anguloImagem.setAttribute('src', 'img/angulo-direito.png');
     }
 });
+//contador carrinho
+
+
 
 //carrossel
 const slideContainer = document.querySelector('.banner-slide');
@@ -297,7 +300,7 @@ function validateEmail(email) {
     return regex.test(email);
 }
 
-//minicart
+// Minicart
 const minicart = document.querySelector(".minicart-main-container");
 const closeBtn = document.querySelector(".close-btn");
 const cartIcon = document.querySelector(".icone-carrinho");
@@ -310,73 +313,84 @@ closeBtn.addEventListener("click", () => {
     minicart.style.display = "none"; 
 });
 
-//carrinho
-
+// Carrinho
 const tamanhoBotoes = document.querySelectorAll(".tamanho-btn");
 const adicionarCarrinhoBtn = document.getElementById("adicionarCarrinho");
 const minicartContainer = document.querySelector(".adicionar-remover-produto");
 const subtotalElement = document.querySelector(".total p strong");
-let subtotal = 0;
+const contadorCarrinho = document.getElementById("contadorCarrinho");
 
+let subtotal = 0;
+let contador = 0; // Inicializa o contador de itens no carrinho
 let tamanhoSelecionado = null;
 
 tamanhoBotoes.forEach((botao) => {
-  botao.addEventListener("click", () => {
-    tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
-    botao.classList.add("selected");
-    tamanhoSelecionado = botao.getAttribute("data-size");
-  });
+    botao.addEventListener("click", () => {
+        tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
+        botao.classList.add("selected");
+        tamanhoSelecionado = botao.getAttribute("data-size");
+    });
 });
 
 // Adiciona produto ao carrinho
 adicionarCarrinhoBtn.addEventListener("click", () => {
-  if (!tamanhoSelecionado) {
-    alert("Por favor, selecione um tamanho antes de adicionar ao carrinho.");
-    return;
-  }
+    if (!tamanhoSelecionado) {
+        alert("Por favor, selecione um tamanho antes de adicionar ao carrinho.");
+        return;
+    }
 
-  const produto = {
-    nome: document.getElementById("modalProdutoNome").textContent,
-    tamanho: tamanhoSelecionado,
-    preco: 150.0,
-    imagem: document.getElementById("modalProdutoImagem").src,
-  };
+    const produto = {
+        nome: document.getElementById("modalProdutoNome").textContent,
+        tamanho: tamanhoSelecionado,
+        preco: 150.0,
+        imagem: document.getElementById("modalProdutoImagem").src,
+    };
 
-  subtotal += produto.preco;
+    subtotal += produto.preco;
 
-  const produtoElement = document.createElement("div");
-  produtoElement.classList.add("produto-item");
-  produtoElement.innerHTML = `
-  <div class="produto-info">
-    <img src="${produto.imagem}" alt="Imagem do Produto" class="produto-imagem">
-    <div class="produto-detalhes">
-      <p class="produto-nome">${produto.nome}</p>
-      <p class="produto-tamanho">Tamanho: ${produto.tamanho}</p>
-      <p class="produto-preco">R$ ${produto.preco.toFixed(2)}</p>
+    const produtoElement = document.createElement("div");
+    produtoElement.classList.add("produto-item");
+    produtoElement.innerHTML = `
+    <div class="produto-info">
+        <img src="${produto.imagem}" alt="Imagem do Produto" class="produto-imagem">
+        <div class="produto-detalhes">
+            <p class="produto-nome">${produto.nome}</p>
+            <p class="produto-tamanho">Tamanho: ${produto.tamanho}</p>
+            <p class="produto-preco">R$ ${produto.preco.toFixed(2)}</p>
+        </div>
     </div>
-  </div>
-  <div class="produto-acoes">
-    <button class="quantidade-btn">-</button>
-    <span class="quantidade">1</span>
-    <button class="quantidade-btn">+</button>
-    <button class="remover-produto">Remover</button>
-  </div>
-`;
+    <div class="produto-acoes">
+        <button class="quantidade-btn">-</button>
+        <span class="quantidade">1</span>
+        <button class="quantidade-btn">+</button>
+        <button class="remover-produto">Remover</button>
+    </div>
+    `;
 
-  minicartContainer.appendChild(produtoElement);
+    minicartContainer.appendChild(produtoElement);
 
-  subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
-
-  produtoElement.querySelector(".remover-produto").addEventListener("click", () => {
-    minicartContainer.removeChild(produtoElement);
-    subtotal -= produto.preco;
     subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
-  });
 
-  document.getElementById("modalCarrinho").style.display = "none";
+    produtoElement.querySelector(".remover-produto").addEventListener("click", () => {
+        minicartContainer.removeChild(produtoElement);
+    
+        // Recalcula o subtotal após remover o item
+        atualizarSubtotal();
+    
+        // Atualiza o contador do carrinho ao remover o produto
+        contador -= 1;
+        contadorCarrinho.textContent = contador >= 0 ? contador : 0;
+    });
+    
 
-  tamanhoSelecionado = null;
-  tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
+    document.getElementById("modalCarrinho").style.display = "none";
+
+    tamanhoSelecionado = null;
+    tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
+
+    // Atualiza o contador do carrinho ao adicionar o produto
+    contador += 1;
+    contadorCarrinho.textContent = contador;
 });
 
 // Evento para manipular a quantidade de produtos
@@ -398,15 +412,14 @@ document.querySelector("#minicartModal").addEventListener("click", function (eve
 
 function atualizarSubtotal() {
     const produtos = document.querySelectorAll(".produto-item");
-    let subtotal = 0;
+    let novoSubtotal = 0;
 
     produtos.forEach((produto) => {
         const preco = parseFloat(produto.querySelector(".produto-preco").textContent.replace("R$", "").trim());
         const quantidade = parseInt(produto.querySelector(".quantidade").textContent);
-        subtotal += preco * quantidade;
+        novoSubtotal += preco * quantidade;
     });
 
-    // Seleciona o elemento correto e altera somente o valor do subtotal
-    const subtotalElemento = document.querySelector(".total p:first-child");
-    subtotalElemento.innerHTML = `<strong>Subtotal:</strong> R$ ${subtotal.toFixed(2)}`;
+    subtotal = novoSubtotal; // Atualiza a variável global subtotal
+    subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
 }

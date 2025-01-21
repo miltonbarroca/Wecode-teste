@@ -284,6 +284,18 @@ header ul li a {
     height: 20px !important;
 }
 
+.contador {
+    position: absolute;
+    right: -5px;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Menu Produtos */
 
 .menu-produtos {
@@ -296,7 +308,6 @@ header ul li a {
     display: none;
 }
 
-/* Estiliza o menu-produtos de forma específica */
 .menu-produtos .menu-links {
     list-style: none;
     margin-top: 24px;
@@ -730,6 +741,8 @@ header ul li a {
     flex-direction: column;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
 }
 
 .minicart-main-container .header {
@@ -858,7 +871,7 @@ header ul li a {
     color: #999;
     border: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
   }
   
 /* Container do Modal lançamentos */
