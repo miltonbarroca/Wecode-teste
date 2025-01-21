@@ -68,35 +68,30 @@
     font-size: 14px;
 }
 
-/* Estilização do select */
 #estado {
     width: 271px;
     height: 38px;
-    color: rgb(211, 211, 211); /* Placeholder em cinza por padrão */
-    font-style: italic; /* Placeholder em itálico por padrão */
+    color: rgb(211, 211, 211);
+    font-style: italic;
 }
 
-/* Quando uma opção diferente do placeholder é selecionada */
 #estado:not(:focus):not([value="placeholder"]) {
-    color: #333; /* Cor normal para opções selecionadas */
+    color: #333;
     font-style: normal;
 }
 
-/* Placeholder estilizado especificamente */
 #estado option[value="placeholder"] {
-    color: rgb(211, 211, 211); /* Placeholder cinza */
-    font-style: italic; /* Placeholder itálico */
+    color: rgb(211, 211, 211);
+    font-style: italic;
 }
 
-/* Esconde o placeholder quando o select está aberto */
 #estado:focus option[value="placeholder"] {
     display: none;
 }
 
-/* Estilo para todas as outras opções */
 #estado option:not([value="placeholder"]) {
-    color: #333; /* Cor preta para opções normais */
-    font-style: normal; /* Sem itálico */
+    color: #333;
+    font-style: normal;
 }
 
 input, select {
@@ -248,8 +243,6 @@ header ul li a {
     transition: width 0.9s ease;
 }
 
-
-/* Hover na linha */
 .logo ul li a:hover::after {
     width: 90%;
 }
@@ -868,7 +861,6 @@ header ul li a {
     font-size: 14px;
   }
   
-
 /* Container do Modal lançamentos */
 
 #modalCarrinho {
@@ -919,6 +911,7 @@ header ul li a {
     flex-wrap: wrap;
     gap: 8px;
 }
+
 .tamanho-btn {
     width: 44px;
     height: 46px;

@@ -260,7 +260,6 @@ document.getElementById("adicionarCarrinho").onclick = function() {
 };
 
 // Newsletter
-// Selecionar elementos do DOM
 const input = document.getElementById("newsletter-input");
 const button = document.getElementById("newsletter-btn");
 const title = document.getElementById("newsletter-title");
@@ -269,72 +268,61 @@ const copiarButton = document.querySelector(".copiar");
 
 // Adicionar evento ao botão de envio
 button.addEventListener("click", function () {
-    const email = input.value.trim(); // Obter o valor do campo de e-mail
-
-    // Validar se o e-mail foi preenchido
+    const email = input.value.trim(); 
     if (!email || !validateEmail(email)) {
         alert("Por favor, insira um e-mail válido.");
         return;
     }
 
-    // Alterar o texto e exibir o cupom e o botão copiar
     title.innerHTML = "Obrigado por se cadastrar! Aqui está seu cupom:";
-    input.style.display = "none"; // Ocultar o campo de e-mail
-    button.style.display = "none"; // Ocultar o botão enviar
-    cupom.style.display = "block"; // Mostrar o cupom
-    copiarButton.style.display = "block"; // Mostrar o botão copiar
+    input.style.display = "none";
+    button.style.display = "none"; 
+    cupom.style.display = "block";
+    copiarButton.style.display = "block"; 
 });
 
 // Adicionar evento para copiar o cupom
 copiarButton.addEventListener("click", function () {
     navigator.clipboard.writeText("BEMVINDA").then(() => {
-        // Alterar o texto do botão para "Copiado"
+
         copiarButton.textContent = "Copiado";
 
-        // Desabilitar o botão após a cópia
         copiarButton.disabled = true;
         copiarButton.style.cursor = "not-allowed";
     });
 });
 
-// Função para validar e-mail
 function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
 //minicart
-// Selecionar elementos necessários
 const minicart = document.querySelector(".minicart-main-container");
 const closeBtn = document.querySelector(".close-btn");
 const cartIcon = document.querySelector(".icone-carrinho");
 
-// Abrir o minicart ao clicar no ícone do carrinho
 cartIcon.addEventListener("click", () => {
-    minicart.style.display = "block"; // Exibe o minicart
+    minicart.style.display = "block"; 
 });
 
-// Fechar o minicart ao clicar no botão "X"
 closeBtn.addEventListener("click", () => {
-    minicart.style.display = "none"; // Oculta o minicart
+    minicart.style.display = "none"; 
 });
 
 //carrinho
 
-// Captura os elementos principais
 const tamanhoBotoes = document.querySelectorAll(".tamanho-btn");
 const adicionarCarrinhoBtn = document.getElementById("adicionarCarrinho");
 const minicartContainer = document.querySelector(".adicionar-remover-produto");
 const subtotalElement = document.querySelector(".total p strong");
 let subtotal = 0;
 
-// Variável para armazenar o tamanho selecionado
 let tamanhoSelecionado = null;
 
-// Adiciona evento para capturar o tamanho selecionado
 tamanhoBotoes.forEach((botao) => {
   botao.addEventListener("click", () => {
-    tamanhoBotoes.forEach((btn) => btn.classList.remove("selected")); // Remove seleção anterior
+    tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
     botao.classList.add("selected");
     tamanhoSelecionado = botao.getAttribute("data-size");
   });
@@ -347,18 +335,15 @@ adicionarCarrinhoBtn.addEventListener("click", () => {
     return;
   }
 
-  // Informações do produto (você pode adicionar mais detalhes aqui)
   const produto = {
     nome: document.getElementById("modalProdutoNome").textContent,
     tamanho: tamanhoSelecionado,
-    preco: 150.0, // Substitua pelo preço real
-    imagem: document.getElementById("modalProdutoImagem").src, // Captura a imagem
+    preco: 150.0,
+    imagem: document.getElementById("modalProdutoImagem").src,
   };
 
-  // Atualiza o subtotal
   subtotal += produto.preco;
 
-  // Cria o HTML para o produto no minicart
   const produtoElement = document.createElement("div");
   produtoElement.classList.add("produto-item");
   produtoElement.innerHTML = `
@@ -380,20 +365,48 @@ adicionarCarrinhoBtn.addEventListener("click", () => {
 
   minicartContainer.appendChild(produtoElement);
 
-  // Atualiza o subtotal no minicart
   subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
 
-  // Adiciona funcionalidade para remover produto
   produtoElement.querySelector(".remover-produto").addEventListener("click", () => {
     minicartContainer.removeChild(produtoElement);
     subtotal -= produto.preco;
     subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
   });
 
-  // Fecha o modal do carrinho (opcional)
   document.getElementById("modalCarrinho").style.display = "none";
 
-  // Reseta o tamanho selecionado
   tamanhoSelecionado = null;
   tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
 });
+
+// Evento para manipular a quantidade de produtos
+document.querySelector("#minicartModal").addEventListener("click", function (event) {
+    if (event.target.classList.contains("quantidade-btn")) {
+        const quantidadeSpan = event.target.parentNode.querySelector(".quantidade");
+        let quantidade = parseInt(quantidadeSpan.textContent);
+
+        if (event.target.textContent === "+") {
+            quantidade += 1;
+        } else if (event.target.textContent === "-" && quantidade > 1) {
+            quantidade -= 1;
+        }
+
+        quantidadeSpan.textContent = quantidade;
+        atualizarSubtotal();
+    }
+});
+
+function atualizarSubtotal() {
+    const produtos = document.querySelectorAll(".produto-item");
+    let subtotal = 0;
+
+    produtos.forEach((produto) => {
+        const preco = parseFloat(produto.querySelector(".produto-preco").textContent.replace("R$", "").trim());
+        const quantidade = parseInt(produto.querySelector(".quantidade").textContent);
+        subtotal += preco * quantidade;
+    });
+
+    // Seleciona o elemento correto e altera somente o valor do subtotal
+    const subtotalElemento = document.querySelector(".total p:first-child");
+    subtotalElemento.innerHTML = `<strong>Subtotal:</strong> R$ ${subtotal.toFixed(2)}`;
+}
