@@ -583,9 +583,6 @@ header ul li a {
     text-decoration: underline;
 }
 
-/*carrinho*/
-
-
 /* newsletter */
 
 .newsletter {
@@ -624,6 +621,46 @@ header ul li a {
     font-size: 14px;
     border: none;
     cursor: pointer;
+}
+
+/* Estilo do container do cupom */
+#cupom-container {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.cupom {
+    display: none;
+    background-color: white;
+    color: #B11B26;
+    border:1px dashed #A9A9A9;
+    padding: 12px 24px;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    font-size: 14px;
+    width: 356px;
+    height: 46px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.copiar {
+    display: none;
+    width: 144px;
+    height: 46px;
+    background-color: #B11B26;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
 }
 
 /* footer */

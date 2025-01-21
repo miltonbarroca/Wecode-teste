@@ -87,7 +87,7 @@ const header = document.querySelector('header');
 const logo = document.querySelector('#bebece-logo');
 const anguloImagem = document.querySelector('.icon-produto');
 
-// Adiciona o evento de scroll
+//evento de scroll
 window.addEventListener('scroll', () => {
 
     if (window.scrollY > 50) {
@@ -144,34 +144,30 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
     const menu = document.getElementById("menu-produtos");
     const linkProdutos = document.getElementById("link-produtos");
-    const header = document.querySelector("header"); // Certifique-se de que o `header` existe no HTML
+    const header = document.querySelector("header");
     const logo = document.getElementById("bebece-logo");
     const anguloImagem = document.querySelector(".icon-produto");
     const links = document.querySelectorAll(".menu-links a");
     const images = document.querySelectorAll(".product-image");
 
-    // Função para alternar o estilo do header
     function changeHeaderToWhite() {
         header.classList.add("scrolled");
         logo.setAttribute("src", "img/logo-preto.png");
         anguloImagem.setAttribute("src", "img/angulo-direito-preto.png");
     }
 
-    // Alterna o menu ao clicar no link Produtos
     linkProdutos.addEventListener("click", function (event) {
         event.preventDefault();
         menu.style.display = menu.style.display === "block" ? "none" : "block";
-        changeHeaderToWhite(); // Chama a função para alterar o header
+        changeHeaderToWhite();
     });
 
-    // Oculta o menu ao clicar fora dele
     document.addEventListener("click", function (event) {
         if (!menu.contains(event.target) && event.target !== linkProdutos) {
             menu.style.display = "none";
         }
     });
 
-    // Exibe a imagem correspondente ao item do menu
     links.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
@@ -189,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Evento de scroll para modificar o header dinamicamente
     window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
             header.classList.add("scrolled");
@@ -203,32 +198,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/// Função para abrir o modal e exibir informações do produto
+// Obter o modal
+var modal = document.getElementById("modalCarrinho");
+var btnCarrinho = document.querySelectorAll(".btn-carrinho");
+var span = document.getElementsByClassName("close-carrinho")[0];
+var tamanhoEscolhido = null;
+var tamanhoBtns = document.querySelectorAll(".tamanho-btn");
+
+modal.style.display = "none";
+
 function abrirModalProduto(produtoNome, produtoImagem) {
     document.getElementById("modalProdutoNome").textContent = "Escolha o tamanho do " + produtoNome;
     document.getElementById("modalProdutoImagem").src = produtoImagem;
     modal.style.display = "block";
 }
 
-// Função para fechar o modal
 function fecharModal() {
     modal.style.display = "none";
 }
 
-// Função para selecionar o tamanho e destacar o botão
 function selecionarTamanho(btn) {
     tamanhoEscolhido = btn.getAttribute("data-size");
     console.log("Tamanho escolhido: " + tamanhoEscolhido);
     tamanhoBtns.forEach(function(b) { b.style.backgroundColor = "#f0f0f0"; });
     btn.style.backgroundColor = "#ddd";
 }
-
-// Obter o modal e os botões
-var modal = document.getElementById("modalCarrinho");
-var btnCarrinho = document.querySelectorAll(".btn-carrinho");
-var span = document.getElementsByClassName("close-carrinho")[0];
-var tamanhoEscolhido = null;
-var tamanhoBtns = document.querySelectorAll(".tamanho-btn");
 
 btnCarrinho.forEach(function(btn) {
     btn.onclick = function(event) {
@@ -247,7 +241,7 @@ window.onclick = function(event) {
     if (event.target == modal) {
         fecharModal();
     }
-}
+};
 
 tamanhoBtns.forEach(function(btn) {
     btn.onclick = function() {
@@ -264,3 +258,47 @@ document.getElementById("adicionarCarrinho").onclick = function() {
         alert("Por favor, escolha um tamanho.");
     }
 };
+
+// Newsletter
+// Selecionar elementos do DOM
+const input = document.getElementById("newsletter-input");
+const button = document.getElementById("newsletter-btn");
+const title = document.getElementById("newsletter-title");
+const cupom = document.querySelector(".cupom");
+const copiarButton = document.querySelector(".copiar");
+
+// Adicionar evento ao botão de envio
+button.addEventListener("click", function () {
+    const email = input.value.trim(); // Obter o valor do campo de e-mail
+
+    // Validar se o e-mail foi preenchido
+    if (!email || !validateEmail(email)) {
+        alert("Por favor, insira um e-mail válido.");
+        return;
+    }
+
+    // Alterar o texto e exibir o cupom e o botão copiar
+    title.innerHTML = "Obrigado por se cadastrar! Aqui está seu cupom:";
+    input.style.display = "none"; // Ocultar o campo de e-mail
+    button.style.display = "none"; // Ocultar o botão enviar
+    cupom.style.display = "block"; // Mostrar o cupom
+    copiarButton.style.display = "block"; // Mostrar o botão copiar
+});
+
+// Adicionar evento para copiar o cupom
+copiarButton.addEventListener("click", function () {
+    navigator.clipboard.writeText("BEMVINDA").then(() => {
+        // Alterar o texto do botão para "Copiado"
+        copiarButton.textContent = "Copiado";
+
+        // Desabilitar o botão após a cópia
+        copiarButton.disabled = true;
+        copiarButton.style.cursor = "not-allowed";
+    });
+});
+
+// Função para validar e-mail
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}

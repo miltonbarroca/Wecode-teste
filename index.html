@@ -239,13 +239,19 @@
             </div>
         </div>
     </div>
-
+    
     <div class="newsletter">
-        <h1>Cadastre-se e receba <srtong>10% OFF</srtong> na sua primeira compra!</h1>
+        <h1 id="newsletter-title">Cadastre-se e receba <strong>10% OFF</strong> na sua primeira compra!</h1>
         <input id="newsletter-input" type="text" placeholder="Digite seu e-mail">
-        <button class="btn-enviar">ENVIAR</button>
+        <button id="newsletter-btn" class="btn-enviar">ENVIAR</button>
+        
+        <!-- Este container estará oculto inicialmente -->
+        <div id="cupom-container" class="hidden">
+            <div class="cupom">BEMVINDA</div>
+            <button id="btn-copiar" class="copiar">Copiar</button>
+        </div>
     </div>
-
+    
     <footer class="footer">
         <img id="logo-footer" src="img/logo-footer.svg" alt="Logo Bebecê">
         <div class="footer-container">
