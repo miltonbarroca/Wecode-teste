@@ -269,7 +269,7 @@ const title = document.getElementById("newsletter-title");
 const cupom = document.querySelector(".cupom");
 const copiarButton = document.querySelector(".copiar");
 
-// Adicionar evento ao botão de envio
+// botão de envio
 button.addEventListener("click", function () {
     const email = input.value.trim(); 
     if (!email || !validateEmail(email)) {
@@ -284,7 +284,7 @@ button.addEventListener("click", function () {
     copiarButton.style.display = "block"; 
 });
 
-// Adicionar evento para copiar o cupom
+//evento para copiar o cupom
 copiarButton.addEventListener("click", function () {
     navigator.clipboard.writeText("BEMVINDA").then(() => {
 
@@ -321,7 +321,7 @@ const subtotalElement = document.querySelector(".total p strong");
 const contadorCarrinho = document.getElementById("contadorCarrinho");
 
 let subtotal = 0;
-let contador = 0; // Inicializa o contador de itens no carrinho
+let contador = 0;
 let tamanhoSelecionado = null;
 
 tamanhoBotoes.forEach((botao) => {
@@ -332,7 +332,6 @@ tamanhoBotoes.forEach((botao) => {
     });
 });
 
-// Adiciona produto ao carrinho
 adicionarCarrinhoBtn.addEventListener("click", () => {
     if (!tamanhoSelecionado) {
         alert("Por favor, selecione um tamanho antes de adicionar ao carrinho.");
@@ -373,11 +372,9 @@ adicionarCarrinhoBtn.addEventListener("click", () => {
 
     produtoElement.querySelector(".remover-produto").addEventListener("click", () => {
         minicartContainer.removeChild(produtoElement);
-    
-        // Recalcula o subtotal após remover o item
+
         atualizarSubtotal();
     
-        // Atualiza o contador do carrinho ao remover o produto
         contador -= 1;
         contadorCarrinho.textContent = contador >= 0 ? contador : 0;
     });
@@ -420,6 +417,6 @@ function atualizarSubtotal() {
         novoSubtotal += preco * quantidade;
     });
 
-    subtotal = novoSubtotal; // Atualiza a variável global subtotal
+    subtotal = novoSubtotal;
     subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
 }
