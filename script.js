@@ -302,3 +302,19 @@ function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
+
+//minicart
+// Selecionar elementos necessários
+const minicart = document.querySelector(".minicart-main-container");
+const closeBtn = document.querySelector(".close-btn");
+const cartIcon = document.querySelector(".icone-carrinho");
+
+// Abrir o minicart ao clicar no ícone do carrinho
+cartIcon.addEventListener("click", () => {
+    minicart.style.display = "block"; // Exibe o minicart
+});
+
+// Fechar o minicart ao clicar no botão "X"
+closeBtn.addEventListener("click", () => {
+    minicart.style.display = "none"; // Oculta o minicart
+});

@@ -7,10 +7,6 @@
 
 /* Estilização do modal */
 
-/* text {
-    font-family: 'Open sans', sans-serif;
-} */
-
 .modal {
     display: none;
     position: fixed;
@@ -42,7 +38,7 @@
     white-space: nowrap;
 }
 
-.close-button, .close-carrinho {
+.close-button, .close-carrinho, .close-btn {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -500,9 +496,9 @@ header ul li a {
 
 .btn-carrinho {
     position: absolute;
-    bottom: 10px; /* Distância da parte inferior do card */
-    right: 10px; /* Distância da lateral direita do card */
-    display: flex; /* Caso queira centralizar o conteúdo dentro */
+    bottom: 10px;
+    right: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -511,11 +507,11 @@ header ul li a {
     width: 32px;
     height: auto;
     cursor: pointer;
-    transition: transform 0.2s ease; /* Efeito ao passar o mouse */
+    transition: transform 0.2s ease;
 }
 
 .btn-carrinho img:hover {
-    transform: scale(1.1); /* Aumenta levemente no hover */
+    transform: scale(1.1);
 }
 
 /* Conheça mais */
@@ -728,80 +724,66 @@ header ul li a {
     text-decoration: underline;
 }
 
-/* Container do Modal */
-#modalCarrinho {
-    display: none;
+/*minicart*/
+.minicart-main-container {
+    width: 500px;
+    height: 550px;
+    background-color: white;
     position: fixed;
-    z-index: 1000;
-    top: 50%;
-    left: 50%;  
-    width: 903px;
-    height: 433px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%);
-}
-
-.modal-body{
-    background-color: white;
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-.modal-image {
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
-    padding: 20px;
-}
-
-.modal-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.modal-details {
-    flex: 2;
-    padding: 20px;
+    top: 40%;
+    right: 0%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tamanhos {
+.minicart-main-container .header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.tamanho-btn {
-    width: 44px;
-    height: 46px;
-    font-size: 14px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.tamanho-btn:hover {
-    background-color: #ddd;
+.minicart-main-container h1 {
+    font-size: 24px;
+    margin: 0;
 }
 
-#adicionarCarrinho {
-    margin-top: 20px;
-    padding: 15px;
-    font-size: 16px;
+.minicart-main-container .adicionar-remover-produto {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.minicart-main-container .total {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.minicart-main-container .total p {
+    margin: 5px 0;
+}
+
+.minicart-main-container .total button {
     background-color: #B11B26;
     color: white;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    height: 46px;
+    width: 452px;
+    font-size: 14px;
 }
 
-#adicionarCarrinho:hover {
-    background-color: #9a1722;
+.minicart-main-container .total a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.minicart-main-container .total a:hover {
+    text-decoration: underline;
 }
