@@ -208,7 +208,7 @@ var tamanhoBtns = document.querySelectorAll(".tamanho-btn");
 modal.style.display = "none";
 
 function abrirModalProduto(produtoNome, produtoImagem) {
-    document.getElementById("modalProdutoNome").textContent = "Escolha o tamanho do " + produtoNome;
+    document.getElementById("modalProdutoNome").textContent = produtoNome;
     document.getElementById("modalProdutoImagem").src = produtoImagem;
     modal.style.display = "block";
 }
@@ -317,4 +317,83 @@ cartIcon.addEventListener("click", () => {
 // Fechar o minicart ao clicar no botão "X"
 closeBtn.addEventListener("click", () => {
     minicart.style.display = "none"; // Oculta o minicart
+});
+
+//carrinho
+
+// Captura os elementos principais
+const tamanhoBotoes = document.querySelectorAll(".tamanho-btn");
+const adicionarCarrinhoBtn = document.getElementById("adicionarCarrinho");
+const minicartContainer = document.querySelector(".adicionar-remover-produto");
+const subtotalElement = document.querySelector(".total p strong");
+let subtotal = 0;
+
+// Variável para armazenar o tamanho selecionado
+let tamanhoSelecionado = null;
+
+// Adiciona evento para capturar o tamanho selecionado
+tamanhoBotoes.forEach((botao) => {
+  botao.addEventListener("click", () => {
+    tamanhoBotoes.forEach((btn) => btn.classList.remove("selected")); // Remove seleção anterior
+    botao.classList.add("selected");
+    tamanhoSelecionado = botao.getAttribute("data-size");
+  });
+});
+
+// Adiciona produto ao carrinho
+adicionarCarrinhoBtn.addEventListener("click", () => {
+  if (!tamanhoSelecionado) {
+    alert("Por favor, selecione um tamanho antes de adicionar ao carrinho.");
+    return;
+  }
+
+  // Informações do produto (você pode adicionar mais detalhes aqui)
+  const produto = {
+    nome: document.getElementById("modalProdutoNome").textContent,
+    tamanho: tamanhoSelecionado,
+    preco: 150.0, // Substitua pelo preço real
+    imagem: document.getElementById("modalProdutoImagem").src, // Captura a imagem
+  };
+
+  // Atualiza o subtotal
+  subtotal += produto.preco;
+
+  // Cria o HTML para o produto no minicart
+  const produtoElement = document.createElement("div");
+  produtoElement.classList.add("produto-item");
+  produtoElement.innerHTML = `
+  <div class="produto-info">
+    <img src="${produto.imagem}" alt="Imagem do Produto" class="produto-imagem">
+    <div class="produto-detalhes">
+      <p class="produto-nome">${produto.nome}</p>
+      <p class="produto-tamanho">Tamanho: ${produto.tamanho}</p>
+      <p class="produto-preco">R$ ${produto.preco.toFixed(2)}</p>
+    </div>
+  </div>
+  <div class="produto-acoes">
+    <button class="quantidade-btn">-</button>
+    <span class="quantidade">1</span>
+    <button class="quantidade-btn">+</button>
+    <button class="remover-produto">Remover</button>
+  </div>
+`;
+
+  minicartContainer.appendChild(produtoElement);
+
+  // Atualiza o subtotal no minicart
+  subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
+
+  // Adiciona funcionalidade para remover produto
+  produtoElement.querySelector(".remover-produto").addEventListener("click", () => {
+    minicartContainer.removeChild(produtoElement);
+    subtotal -= produto.preco;
+    subtotalElement.textContent = `Subtotal: R$ ${subtotal.toFixed(2)}`;
+  });
+
+  // Fecha o modal do carrinho (opcional)
+  document.getElementById("modalCarrinho").style.display = "none";
+
+  // Reseta o tamanho selecionado
+  tamanhoSelecionado = null;
+  tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
 });

@@ -728,10 +728,10 @@ header ul li a {
 
 .minicart-main-container {
     width: 500px;
-    height: 550px;
+    height: 700px;
     background-color: white;
     position: fixed;
-    top: 40%;
+    top: 22%;
     right: 0%;
     display: flex;
     flex-direction: column;
@@ -792,6 +792,82 @@ header ul li a {
 .minicart-main-container .total a:hover {
     text-decoration: underline;
 }
+
+/*card carrinho minicart*/
+
+.produto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  
+  .produto-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .produto-imagem {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+  }
+  
+  .produto-detalhes {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .produto-nome {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .produto-tamanho,
+  .produto-preco {
+    margin-bottom: 5px;
+  }
+  
+  .produto-acoes {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .quantidade-btn {
+    background: none;
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .quantidade {
+    font-size: 16px;
+    font-weight: bold;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .remover-produto {
+    background: none;
+    color: #999;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
 
 /* Container do Modal lançamentos */
 
