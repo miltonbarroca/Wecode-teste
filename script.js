@@ -100,9 +100,6 @@ window.addEventListener('scroll', () => {
         anguloImagem.setAttribute('src', 'img/angulo-direito.png');
     }
 });
-//contador carrinho
-
-
 
 //carrossel
 const slideContainer = document.querySelector('.banner-slide');
@@ -112,7 +109,6 @@ function changeSlide() {
     index = (index + 1) % 2;
     slideContainer.style.transform = `translateX(-${index * 100}%)`;
 }
-
 
 setInterval(changeSlide, 5000);
 
