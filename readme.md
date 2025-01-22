@@ -1,5 +1,7 @@
 # Front-End Test
 
+https://miltonbarroca.github.io/Wecode-teste/
+
 Este projeto é uma aplicação web desenvolvida como parte de um teste prático para um processo seletivo de desenvolvedor front-end. Ele simula uma loja online da marca Bebecê, focada em oferecer uma experiência personalizada ao usuário.
 
 ## 🚀 Funcionalidades
