@@ -1,4 +1,4 @@
-# Bebecê Front-End Test Project
+# Front-End Test
 
 Este projeto é uma aplicação web desenvolvida como parte de um teste prático para um processo seletivo de desenvolvedor front-end. Ele simula uma loja online da marca Bebecê, focada em oferecer uma experiência personalizada ao usuário.
 
@@ -25,7 +25,7 @@ wecode-teste/
 ├── style.css        # Estilos da aplicação
 ├── script.js          # Funcionalidades interativas (a ser implementado/expandido)
 ├── img/               # Imagens do projeto (banners, produtos, ícones, etc.)
-└── README.md # Documentação do projeto
+└── README.md          # Documentação do projeto
 
 
 ## ✅ To-Do (Melhorias Futuras)
