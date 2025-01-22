@@ -375,13 +375,11 @@ adicionarCarrinhoBtn.addEventListener("click", () => {
         contadorCarrinho.textContent = contador >= 0 ? contador : 0;
     });
     
-
     document.getElementById("modalCarrinho").style.display = "none";
 
     tamanhoSelecionado = null;
     tamanhoBotoes.forEach((btn) => btn.classList.remove("selected"));
 
-    // Atualiza o contador do carrinho ao adicionar o produto
     contador += 1;
     contadorCarrinho.textContent = contador;
 });
